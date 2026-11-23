@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>骑行动画盲评</title><style>
+:root{font:16px/1.5 system-ui,sans-serif;color:#1b292a;background:#f4f6f4}body{margin:0}main{margin:3vh auto;max-width:1100px;padding:0 16px}header,footer{display:flex;align-items:center;justify-content:space-between;gap:10px}h1{font-size:1.3rem}video{display:block;width:100%;background:#182323;border-radius:8px}#choices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}button{font:inherit;cursor:pointer;background:white;border:1px solid #8b9b98;border-radius:6px;padding:10px 12px}button:focus-visible{outline:3px solid #177d71}button:disabled{opacity:.55;cursor:default}progress{width:110px}#status{color:#285c52}.done #choices,.done video,.done #prompt{display:none}@media(max-width:620px){#choices{grid-template-columns:1fr 1fr}main{margin:1vh auto}}
+</style><main><header><h1>骑行动画盲评</h1><span id="count"></span></header>
+<p id="prompt"></p><video id="clip" controls autoplay muted loop playsinline preload="auto"></video>
+<div id="choices"><button data-value="A">A 更好</button><button data-value="B">B 更好</button><button data-value="tie">平局</button><button data-value="unobservable">看不清</button></div>
+<footer><span id="status" role="status"></span><button id="csv">导出 CSV</button></footer></main>
+<script>
+const packageData={"version": "rides-340deafa42", "items": [{"id": "P01", "prompt": "Ostrich on a bicycle", "video": "videos/P01.webm"}, {"id": "P02", "prompt": "Toucan on a tricycle", "video": "videos/P02.webm"}, {"id": "P03", "prompt": "Ostrich on a bicycle", "video": "videos/P03.webm"}, {"id": "P04", "prompt": "Toucan on a tricycle", "video": "videos/P04.webm"}, {"id": "P05", "prompt": "Ostrich on a bicycle", "video": "videos/P05.webm"}, {"id": "P06", "prompt": "Toucan on a tricycle", "video": "videos/P06.webm"}, {"id": "P07", "prompt": "Ostrich on a tricycle", "video": "videos/P07.webm"}, {"id": "P08", "prompt": "Ostrich on a bicycle", "video": "videos/P08.webm"}, {"id": "P09", "prompt": "Toucan on a tricycle", "video": "videos/P09.webm"}, {"id": "P10", "prompt": "Toucan on a bicycle", "video": "videos/P10.webm"}, {"id": "P11", "prompt": "Ostrich on a tricycle", "video": "videos/P11.webm"}, {"id": "P12", "prompt": "Toucan on a tricycle", "video": "videos/P12.webm"}, {"id": "P13", "prompt": "Ostrich on a tricycle", "video": "videos/P13.webm"}, {"id": "P14", "prompt": "Toucan on a bicycle", "video": "videos/P14.webm"}, {"id": "P15", "prompt": "Ostrich on a tricycle", "video": "videos/P15.webm"}, {"id": "P16", "prompt": "Ostrich on a bicycle", "video": "videos/P16.webm"}, {"id": "P17", "prompt": "Ostrich on a bicycle", "video": "videos/P17.webm"}, {"id": "P18", "prompt": "Toucan on a tricycle", "video": "videos/P18.webm"}, {"id": "P19", "prompt": "Ostrich on a bicycle", "video": "videos/P19.webm"}, {"id": "P20", "prompt": "Toucan on a bicycle", "video": "videos/P20.webm"}, {"id": "P21", "prompt": "Ostrich on a tricycle", "video": "videos/P21.webm"}, {"id": "P22", "prompt": "Toucan on a tricycle", "video": "videos/P22.webm"}, {"id": "P23", "prompt": "Toucan on a bicycle", "video": "videos/P23.webm"}, {"id": "P24", "prompt": "Toucan on a bicycle", "video": "videos/P24.webm"}, {"id": "P25", "prompt": "Toucan on a bicycle", "video": "videos/P25.webm"}, {"id": "P26", "prompt": "Ostrich on a tricycle", "video": "videos/P26.webm"}, {"id": "P27", "prompt": "Toucan on a tricycle", "video": "videos/P27.webm"}]};
+const lane=location.hash==='#reviewer-2'?'2':'1';
+const key='riding.blind.'+packageData.version+'.'+lane;
+let answers={};try{answers=JSON.parse(localStorage.getItem(key)||'{}')}catch{}
+const items=packageData.items, video=document.querySelector('video'),buttons=[...document.querySelectorAll('[data-value]')];
+let current;
+function render(){
+ const i=items.findIndex(r=>!answers[r.id]);current=items[i];
+ document.querySelector('main').classList.toggle('done',i<0);
+ document.querySelector('#count').textContent=i<0?items.length+' / '+items.length:(i+1)+' / '+items.length;
+ if(i<0){video.pause();document.querySelector('#status').textContent='已全部评分，可以导出 CSV。';return;}
+ document.querySelector('#prompt').textContent=current.prompt+' · 请选择骑行动作更自然、也更符合题意的一侧。场景若无法切换视角，会保留它实际显示的画面。';
+ document.querySelector('#status').textContent='选择后自动进入下一对。';
+ buttons.forEach(b=>b.disabled=true);video.src=current.video;video.load();video.play().catch(()=>{});
+}
+video.addEventListener('loadeddata',()=>buttons.forEach(b=>b.disabled=false));
+video.addEventListener('error',()=>{document.querySelector('#status').textContent='视频未加载。请确认视频文件夹与此页面位于同一目录。';});
+for(const b of buttons)b.addEventListener('click',()=>{
+ if(!current||b.disabled)return;answers[current.id]={choice:b.dataset.value,time:new Date().toISOString()};
+ try{localStorage.setItem(key,JSON.stringify(answers))}catch{}render();
+});
+document.querySelector('#csv').addEventListener('click',()=>{
+ const rows=[['study','reviewer','pair_id','choice','rated_at'],...items.filter(r=>answers[r.id]).map(r=>[packageData.version,lane,r.id,answers[r.id].choice,answers[r.id].time])];
+ const url=URL.createObjectURL(new Blob(['\ufeff'+rows.map(r=>r.join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='riding-'+packageData.version+'-reviewer-'+lane+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+render();
+</script></html>
