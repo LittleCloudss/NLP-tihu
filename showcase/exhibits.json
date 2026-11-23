@@ -1,0 +1,578 @@
+[
+  {
+    "id": "R01",
+    "section": "Startup rescue",
+    "title": "Controls, but no bicycle",
+    "model": "qwen4-max",
+    "case": "toucan-bicycle-01",
+    "arms": "AD",
+    "detail": "Left: the page drew its interface, but an invalid OrbitControls import stopped the 3D scene from starting. Right: the same model recovered the bird, the bicycle and the pedaling motion. All frozen mechanical checks pass.",
+    "watch": "On the left, the buttons load. The rider never does.",
+    "task": "Toucan on a bicycle",
+    "draw": 1,
+    "sources": [
+      {
+        "model": "qwen4-max",
+        "case": "toucan-bicycle-01",
+        "arm": "A",
+        "slot": "A",
+        "sha256": "7db060aafa7a08bfc9115a63f4e34f0a01a97f092161a4d995032d6933921509",
+        "method": "Unmodified startup capture (still; no WebGL canvas)",
+        "camera": null,
+        "source": "cases/qwen4-max/toucan-bicycle-01/A/launch/hero-0.png",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      },
+      {
+        "model": "qwen4-max",
+        "case": "toucan-bicycle-01",
+        "arm": "D",
+        "slot": "D/try-3",
+        "sha256": "57cd90e1a89716ba12f34da1646818dc27ea6f888903f0b41edb51c3e23e82fd",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            1.4423375137921848,
+            1.7840066488141098,
+            4.397929730600579
+          ],
+          "target": [
+            0.03499999999999992,
+            0.9484,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/qwen4-max/toucan-bicycle-01/D/try-3/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Startup recovery. Across all 36 starts: course pass 13/36 with A → 34/36 with D.",
+    "side_labels": [
+      "Left · A · First draw",
+      "Right · D · Full harness"
+    ],
+    "video": "videos/R01.webm",
+    "image": "posters/R01.jpg",
+    "video_sha256": "d188c4a78fb00247d54cace41468e6e9fa6e59f01aaaa93078bb2ec2c7bec71b",
+    "poster_sha256": "38e3c6bbf75b596916145379348b6252d9e3d1496c1b1406b29f0ce5c3cb82b3"
+  },
+  {
+    "id": "M01",
+    "section": "Motion comebacks",
+    "title": "Give the ostrich a lane",
+    "model": "deepseek-v4.1-flash-1017",
+    "case": "ostrich-tricycle-03",
+    "arms": "AD",
+    "pair": "P13",
+    "detail": "Follow the front tire and then the feet. On the left, the wheel turns across the red frame. On the right, all three wheel planes pass and both soles meet the pedals on 96/96 frames (0/96 before). Left crank direction and road motion still fail.",
+    "watch": "Watch the front wheel edge-on, then follow the feet.",
+    "task": "Ostrich on a tricycle",
+    "draw": 3,
+    "sources": [
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "ostrich-tricycle-03",
+        "arm": "A",
+        "slot": "A",
+        "sha256": "185254c0f3dd95d0a28c44040195968336700ab7dd0a4d1d66a70b906bbf49f9",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            2.5596702814955297,
+            2.9848042296379713,
+            7.99896962967353
+          ],
+          "target": [
+            0,
+            1.465,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/ostrich-tricycle-03/A/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      },
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "ostrich-tricycle-03",
+        "arm": "D",
+        "slot": "D/try-3",
+        "sha256": "65c7c79773903430c259690488cbc662bcc13c6be7c7a4670d37e4135259210e",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            2.5596702814955297,
+            2.9848042296379713,
+            7.99896962967353
+          ],
+          "target": [
+            0,
+            1.465,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/ostrich-tricycle-03/D/try-3/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Both blind reviewers preferred D. D improved this ride, but did not pass every mechanical check.",
+    "side_labels": [
+      "Left · A · First draw",
+      "Right · D · Full harness"
+    ],
+    "video": "videos/M01.webm",
+    "image": "posters/M01.jpg",
+    "video_sha256": "7cd54269fee62e4a789ecd01a86e0ccf623d404436bf33ea020edd2110995cda",
+    "poster_sha256": "8d2f77325cb4bcadd203ce1fe04b1960682a29ed240bbcc5fe3a7d7681dbc9c0"
+  },
+  {
+    "id": "M02",
+    "section": "Motion comebacks",
+    "title": "Two feet, two pedals",
+    "model": "qwen4-max",
+    "case": "toucan-bicycle-02",
+    "arms": "CD",
+    "pair": "P24",
+    "detail": "The shared rig already has a recognizable bird and bicycle. Look at the gap between the orange feet and the pedals. Support rises from 0/96 to 96/96 frames on each side; the full harness passes every mechanical check.",
+    "watch": "Follow the orange foot at the bottom of its stroke.",
+    "task": "Toucan on a bicycle",
+    "draw": 2,
+    "sources": [
+      {
+        "model": "qwen4-max",
+        "case": "toucan-bicycle-02",
+        "arm": "C",
+        "slot": "C/try-1",
+        "sha256": "06187e436a32936b9d773a4142bc50208a4f198f79e1f177dfffee4e1104157c",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            1.4634475764990675,
+            1.8082407485463214,
+            4.4638986765595865
+          ],
+          "target": [
+            0.03499999999999992,
+            0.9601,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/qwen4-max/toucan-bicycle-02/C/try-1/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      },
+      {
+        "model": "qwen4-max",
+        "case": "toucan-bicycle-02",
+        "arm": "D",
+        "slot": "D/try-3",
+        "sha256": "97101ac1413a4a11682a8f8d9290b95439e2d2f4570fb93493926348b3bdaf0c",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            1.4634475764990675,
+            1.8082407485463214,
+            4.4638986765595865
+          ],
+          "target": [
+            0.03499999999999992,
+            0.9601,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/qwen4-max/toucan-bicycle-02/D/try-3/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Both blind reviewers preferred D. D passed all mechanical checks.",
+    "side_labels": [
+      "Left · C · Shared rig",
+      "Right · D · Full harness"
+    ],
+    "video": "videos/M02.webm",
+    "image": "posters/M02.jpg",
+    "video_sha256": "165d8e13f2f4ff0736438db5db241d2bb4e2b8e1091b9c1df03165cfd898b330",
+    "poster_sha256": "b1e9514f76f90cae219ff83491e40b58efce7398b39c87c515fc5beb79e91530"
+  },
+  {
+    "id": "M03",
+    "followup_release": "5a10bd39105c43889467520f1b4d31ccfe1fcc18a68c5e336242687dd1bde781",
+    "section": "Motion comebacks",
+    "title": "Turn the wheels back into line",
+    "model": "deepseek-v4.1-flash-1017",
+    "case": "ostrich-bicycle-02",
+    "arms": "AD",
+    "pair": "P03",
+    "detail": "The original wheels swing across the bicycle frame; the repaired wheels stay in their planes and rotate forward. Both endpoints already passed the foot-support check. Pedal opposition, joint continuity and road motion still fail on the right.",
+    "watch": "Compare the changing silhouette of the two front rims.",
+    "task": "Ostrich on a bicycle",
+    "draw": 2,
+    "sources": [
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "ostrich-bicycle-02",
+        "arm": "A",
+        "slot": "A",
+        "sha256": "a1e94dfe89e6483b2e5a4e5c5a198ddc6d977c592790a92e3c4acdd98cb30d1c",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            1.9666639615813866,
+            2.412706727188948,
+            6.145824879941833
+          ],
+          "target": [
+            0,
+            1.245,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/ostrich-bicycle-02/A/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      },
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "ostrich-bicycle-02",
+        "arm": "D",
+        "slot": "D/try-3",
+        "sha256": "ab20496230da06cec2e71b019047fe9407ed470c313f308806060869d7bbdc10",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            1.9666639615813866,
+            2.412706727188948,
+            6.145824879941833
+          ],
+          "target": [
+            0,
+            1.245,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/ostrich-bicycle-02/D/try-3/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Both blind reviewers preferred D. D improved this ride, but did not pass every mechanical check.",
+    "side_labels": [
+      "Left · A · First draw",
+      "Right · D · Full harness"
+    ],
+    "video": "videos/M03.webm",
+    "image": "posters/M03.jpg",
+    "video_sha256": "461b6bd7a6db6262ef97d9fad9507ec6176c41f08259d88a4c06dae4c585d934",
+    "poster_sha256": "5e2822bba20b435e7115987ee35a39994b79907efaa9d12b238ee0d3e49a450c",
+    "followup": {
+      "title": "Turn the wheels back into line",
+      "watch": "Watch the ankles through a full turn. Each foot stays with its pedal as the other foot rises.",
+      "detail": "Left: the first draw. Right: the same ostrich and bicycle after a post-study repair. The pedals now stay half a turn apart, both leg chains stay connected, and the road moves at the tire speed.",
+      "status": "Post-study demonstration · 16/16 frozen checks passed · not blind-rated or included in the study results.",
+      "side_labels": [
+        "Left · A · First draw",
+        "Right · DeepSeek Flash · Post-study repair"
+      ],
+      "sources": [
+        {
+          "model": "deepseek-v4.1-flash-1017",
+          "case": "ostrich-bicycle-02",
+          "arm": "A",
+          "slot": "A",
+          "sha256": "a1e94dfe89e6483b2e5a4e5c5a198ddc6d977c592790a92e3c4acdd98cb30d1c",
+          "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+          "camera": {
+            "position": [
+              1.9666639615813866,
+              2.412706727188948,
+              6.145824879941833
+            ],
+            "target": [
+              0,
+              1.245,
+              0
+            ],
+            "fov": 28
+          },
+          "source": "cases/deepseek-v4.1-flash-1017/ostrich-bicycle-02/A/scene.html",
+          "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+        },
+        {
+          "source": "evaluation/results/showcase-audit/followups/M03/tool-binding/scene.html",
+          "sha256": "5a10bd39105c43889467520f1b4d31ccfe1fcc18a68c5e336242687dd1bde781",
+          "camera": {
+            "position": [
+              1.9666639615813866,
+              2.412706727188948,
+              6.145824879941833
+            ],
+            "target": [
+              0,
+              1.245,
+              0
+            ],
+            "fov": 28
+          },
+          "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+        }
+      ],
+      "image": "posters/M03-followup.jpg",
+      "video": "videos/M03-followup.webm",
+      "video_sha256": "41336a73110586e33f8a33497e863f28855f9693d2f4adce7b15cac75246f573",
+      "poster_sha256": "595bb9dcd72da2ad6ae8013294ce426273ded87484cb649897abf1223d2002ab",
+      "attempt": 4
+    }
+  },
+  {
+    "id": "M04",
+    "section": "Motion comebacks",
+    "title": "Stay on the pedals through the turn",
+    "model": "qwen4-max",
+    "case": "toucan-tricycle-01",
+    "arms": "CD",
+    "pair": "P04",
+    "detail": "Track the blue feet on the left and the orange feet on the right. The shared rig supports each foot on 60/96 frames; the full harness supports both on 96/96. Joint continuity also passes after repair. Road motion still fails.",
+    "watch": "Check the far foot as the near pedal comes around.",
+    "task": "Toucan on a tricycle",
+    "draw": 1,
+    "sources": [
+      {
+        "model": "qwen4-max",
+        "case": "toucan-tricycle-01",
+        "arm": "C",
+        "slot": "C/try-2",
+        "sha256": "6e0f4e187b7fc088a47400b41e9d5ece3a57bb3abed2962e2a5d3e587215bf79",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            0.7724140591848679,
+            1.3862395976410156,
+            2.304418934952713
+          ],
+          "target": [
+            0.03499999999999992,
+            0.9484,
+            0
+          ],
+          "fov": 52
+        },
+        "source": "cases/qwen4-max/toucan-tricycle-01/C/try-2/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      },
+      {
+        "model": "qwen4-max",
+        "case": "toucan-tricycle-01",
+        "arm": "D",
+        "slot": "D/try-3",
+        "sha256": "715f2e1250d60a3787c77495b1825042fcdbd0bccff2d779f2e5f6d752e36343",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            0.7815328490506295,
+            1.4538351291238112,
+            2.442290153283217
+          ],
+          "target": [
+            0,
+            0.9898,
+            0
+          ],
+          "fov": 52
+        },
+        "source": "cases/qwen4-max/toucan-tricycle-01/D/try-3/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Both blind reviewers preferred D. D improved this ride, but did not pass every mechanical check.",
+    "side_labels": [
+      "Left · C · Shared rig",
+      "Right · D · Full harness"
+    ],
+    "video": "videos/M04.webm",
+    "image": "posters/M04.jpg",
+    "video_sha256": "11576eedbfc408a06ec6200a147dfb2aeb605f87f8ad2c80fef5d3f7269dfddd",
+    "poster_sha256": "881375be77c2cec27cb91998a7d16262623486ea3724d221e225f2e5a2e64105"
+  },
+  {
+    "id": "F01",
+    "section": "3D fail museum",
+    "title": "Pancake wheels",
+    "model": "deepseek-v4.1-flash-1017",
+    "case": "ostrich-bicycle-01",
+    "arms": "A",
+    "detail": "The tires roll over onto their sides while the green frame stays upright.",
+    "watch": "The bicycle ordered two wheels and got a pair of pancakes.",
+    "task": "Ostrich on a bicycle",
+    "draw": 1,
+    "sources": [
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "ostrich-bicycle-01",
+        "arm": "A",
+        "slot": "A",
+        "sha256": "446606446cfb876a6ea9d9e6d6ae2e61a1c2eb64164c034b12fb96f38a9b1dfd",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            2.535613229977714,
+            3.381520355299268,
+            7.923791343680357
+          ],
+          "target": [
+            0,
+            1.8760000000000003,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/ostrich-bicycle-01/A/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Single formal endpoint · runnable · did not pass all mechanical checks.",
+    "side_labels": [
+      "On screen · A · First draw"
+    ],
+    "video": "videos/F01.webm",
+    "image": "posters/F01.jpg",
+    "video_sha256": "a171297c6126ca06913cfcff33481bf67b16bb536f22ade259486ec392688053",
+    "poster_sha256": "1894c8859fbd167095cc33c0f213c7fe890c99b9c73b80dbab1dcc98ce46d8dc"
+  },
+  {
+    "id": "F02",
+    "section": "3D fail museum",
+    "title": "The two-storey bicycle",
+    "model": "qwen3.8-flash",
+    "case": "toucan-bicycle-03",
+    "arms": "B",
+    "detail": "A helmeted rider and pieces of the red frame sit above two wheels that move separately below.",
+    "watch": "The toucan rides upstairs. Its wheels have a place downstairs.",
+    "task": "Toucan on a bicycle",
+    "draw": 3,
+    "sources": [
+      {
+        "model": "qwen3.8-flash",
+        "case": "toucan-bicycle-03",
+        "arm": "B",
+        "slot": "B/try-1",
+        "sha256": "8f5d06eec9b660aa65f90c251750f0c151308923369eb1bcb355d77c72589092",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            -6.512319024158549,
+            2.577340614590124,
+            2.083942087730735
+          ],
+          "target": [
+            0,
+            1.34,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/qwen3.8-flash/toucan-bicycle-03/B/try-1/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Single formal endpoint · runnable · did not pass all mechanical checks.",
+    "side_labels": [
+      "On screen · B · Independent redraw"
+    ],
+    "video": "videos/F02.webm",
+    "image": "posters/F02.jpg",
+    "video_sha256": "a56cade57c3bf2e1e8b5907ff35aec2b6b4d6d226b4f19ad37a8ce578e731a96",
+    "poster_sha256": "8229c2bdf474baf6c10064ac3edfa2fdf09231a55d8e87a615b323226ace152d"
+  },
+  {
+    "id": "F03",
+    "section": "3D fail museum",
+    "title": "Parts in orbit",
+    "model": "deepseek-v4.1-flash-1017",
+    "case": "toucan-tricycle-02",
+    "arms": "B",
+    "detail": "Small blue and tan pieces are suspended in the air above the toucan and its red tricycle.",
+    "watch": "The tricycle stays on the road; its spare parts travel by air.",
+    "task": "Toucan on a tricycle",
+    "draw": 2,
+    "sources": [
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "toucan-tricycle-02",
+        "arm": "B",
+        "slot": "B/try-2",
+        "sha256": "cfc523ba1aa39d1a85cb68508bbec848badf6688f775f73fc15aaf5ee6da77fd",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            -8.748873032455425,
+            3.222285876166531,
+            2.7496393703857347
+          ],
+          "target": [
+            0,
+            1.56,
+            -0.050000000000000044
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/toucan-tricycle-02/B/try-2/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Single formal endpoint · runnable · did not pass all mechanical checks.",
+    "side_labels": [
+      "On screen · B · Independent redraw"
+    ],
+    "video": "videos/F03.webm",
+    "image": "posters/F03.jpg",
+    "video_sha256": "80db7641b5fa9a92d2440edc29086b618511e1cccd522566b7c64b0503c8b152",
+    "poster_sha256": "286248272190d981f1e3a94a2362f98b67b06b6c5840412ab14b76f2e5b35ceb"
+  },
+  {
+    "id": "F04",
+    "section": "3D fail museum",
+    "title": "A neck with air gaps",
+    "model": "deepseek-v4.1-flash-1017",
+    "case": "ostrich-bicycle-03",
+    "arms": "C",
+    "detail": "Follow the silhouette from the body to the head: separate dark spheres stand in for a continuous neck.",
+    "watch": "This ostrich left a little breathing room between the neck bones.",
+    "task": "Ostrich on a bicycle",
+    "draw": 3,
+    "sources": [
+      {
+        "model": "deepseek-v4.1-flash-1017",
+        "case": "ostrich-bicycle-03",
+        "arm": "C",
+        "slot": "C/try-3",
+        "sha256": "e5a85e34860869b56146d47cf0dd42f89ff47f00c34972ff0c333c069a3aaefe",
+        "method": "Fixed orientation and scale, tracking horizontal axle-midpoint translation; matched normalized framing",
+        "camera": {
+          "position": [
+            3.536386573118824,
+            4.350729527789302,
+            11.051208040996325
+          ],
+          "target": [
+            0,
+            2.2510000000000003,
+            0
+          ],
+          "fov": 28
+        },
+        "source": "cases/deepseek-v4.1-flash-1017/ostrich-bicycle-03/C/try-3/scene.html",
+        "capture_sha256": "d6ad408e9ea6ebea98fd7037fe05ac32d79e334318a3f49c7057918eba0c3a63"
+      }
+    ],
+    "status": "Single formal endpoint · runnable · did not pass all mechanical checks.",
+    "side_labels": [
+      "On screen · C · Shared rig"
+    ],
+    "video": "videos/F04.webm",
+    "image": "posters/F04.jpg",
+    "video_sha256": "dfbf745079a01fdfa49bcbd5eb686b017e3c2be68e57b8a26b154bd9a504ce73",
+    "poster_sha256": "999e07f0309d75bf782cdb0fe73fa6f5c2be8c91e1f079e0650f8b5a309dfb93"
+  }
+]
