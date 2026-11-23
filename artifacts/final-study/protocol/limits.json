@@ -1,0 +1,17 @@
+{
+  "qwen4-max": {
+    "requested": 32000,
+    "effective": 32000,
+    "verified": true
+  },
+  "deepseek-v4.1-flash-1017": {
+    "requested": 32000,
+    "effective": 32000,
+    "verified": true
+  },
+  "qwen3.8-flash": {
+    "requested": 32000,
+    "effective": 32000,
+    "verified": true
+  }
+}

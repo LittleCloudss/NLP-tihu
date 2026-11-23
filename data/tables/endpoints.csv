@@ -1,0 +1,555 @@
+model,case,bird,vehicle,rep,arm,selected,scene_sha256,course,mechanics,checks_passed,checks_recorded,left_supported,right_supported,road_axis_error_deg,missing_or_failed,browser_issues
+qwen4-max,toucan-bicycle-01,toucan,bicycle,1,A,A,7db060aafa7a08bfc9115a63f4e34f0a01a97f092161a4d995032d6933921509,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-bicycle-01,toucan,bicycle,1,B,B/try-3,137684f906c1b4460494b2554244afefc12c283641793aec0b8ee023d84ce612,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-bicycle-01,toucan,bicycle,1,C,C/try-3,ac736ae76a2b58232f98213d820b6f944d50f7df8a441d97f0e0cfea65e75ca6,1,0,13,16,34,34,0.0,l_foot_supported|r_foot_supported|road_motion,
+qwen4-max,toucan-bicycle-01,toucan,bicycle,1,D,D/try-3,57cd90e1a89716ba12f34da1646818dc27ea6f888903f0b41edb51c3e23e82fd,1,1,16,16,96,96,0.0,,
+qwen4-max,toucan-bicycle-02,toucan,bicycle,2,A,A,dbf2aeeeeca82d8697772c9aa04dcb718c546847177ba1388a6a08ecc10f169c,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-bicycle-02,toucan,bicycle,2,B,B/try-3,bb84b7404a3f2328ba183fae9d7af7b953ee721b87e1aae4b0bf686bd0d11236,0,0,0,0,,,,,
+qwen4-max,toucan-bicycle-02,toucan,bicycle,2,C,C/try-1,06187e436a32936b9d773a4142bc50208a4f198f79e1f177dfffee4e1104157c,1,0,13,16,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints,
+qwen4-max,toucan-bicycle-02,toucan,bicycle,2,D,D/try-3,97101ac1413a4a11682a8f8d9290b95439e2d2f4570fb93493926348b3bdaf0c,1,1,16,16,96,96,0.0,,
+qwen4-max,toucan-bicycle-03,toucan,bicycle,3,A,A,53bf6561c9af4a4863f8cdb88fc084059b207f62221d8849dbad169594fe7bef,1,0,10,16,96,54,0.0,l_top_moves_forward|r_top_moves_forward|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,toucan-bicycle-03,toucan,bicycle,3,B,A,53bf6561c9af4a4863f8cdb88fc084059b207f62221d8849dbad169594fe7bef,1,0,10,16,96,54,0.0,l_top_moves_forward|r_top_moves_forward|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,toucan-bicycle-03,toucan,bicycle,3,C,C/try-1,9a829e24dbe6c1f411fccda4b440084285a1ffd6625fe143048ab6067e8d261f,1,0,14,16,96,96,0.0,leg_observations|bilateral_joints,
+qwen4-max,toucan-bicycle-03,toucan,bicycle,3,D,D/try-3,03e152b291398fb3ba5ab61790f7d12e4e26a5f729956c9315a264e48abe03c7,1,1,16,16,96,96,0.0,,
+qwen4-max,toucan-tricycle-01,toucan,tricycle,1,A,A,435eec624610162a74385e31d2e219a039f9b432f81c6a54e27de5e226d0955e,0,0,0,0,,,,,"Cannot read properties of undefined (reading 'push') | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-tricycle-01,toucan,tricycle,1,B,B/try-2,6560d1fa92a9268c706026fec1f1729edbeb40ccaa8cbdb1ca99a802330cb8fb,1,0,8,17,0,0,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|leg_observations|bilateral_joints|road_motion,
+qwen4-max,toucan-tricycle-01,toucan,tricycle,1,C,C/try-2,6e0f4e187b7fc088a47400b41e9d5ece3a57bb3abed2962e2a5d3e587215bf79,1,0,13,17,60,60,0.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+qwen4-max,toucan-tricycle-01,toucan,tricycle,1,D,D/try-3,715f2e1250d60a3787c77495b1825042fcdbd0bccff2d779f2e5f6d752e36343,1,0,16,17,96,96,0.0,road_motion,
+qwen4-max,toucan-tricycle-02,toucan,tricycle,2,A,A,b328213ef5078fd2c277444318960819d2769ae170f1e66ccdd6b97998d858a9,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-tricycle-02,toucan,tricycle,2,B,B/try-2,69bf90c1365c61657b7646c33f29433ae4a2fccfe7f2d7fc085b146b5cd5e895,1,0,9,17,0,0,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|bilateral_joints|road_motion,
+qwen4-max,toucan-tricycle-02,toucan,tricycle,2,C,C/try-3,7ea54c9077b1e8e25021293b74ad39d75435790a26be7a207ce0c29f449f3306,0,0,0,0,,,,,"Unexpected token ')' | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-tricycle-02,toucan,tricycle,2,D,D/try-3,d61a481f9f9cd3bb8100b3c87d680862624c8bf23d789162c382a3dbedc125b7,1,0,16,17,96,96,0.0,bilateral_joints,
+qwen4-max,toucan-tricycle-03,toucan,tricycle,3,A,A,eebb25a8cea50896e2b8ff2b5bc8192b0fd3e68dd71c3e7e8b60f4b10f3f016b,0,0,0,0,,,,,"Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: window.__pelicanLab[method] is not a function
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: window.__pelicanLab[method] is not a function
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,toucan-tricycle-03,toucan,tricycle,3,B,B/try-2,02a560fb847418e5af2908075aa35b24a87b3d7021f2de92ee6918ff5bdfdb09,1,0,9,17,76,76,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|bilateral_joints|road_motion,
+qwen4-max,toucan-tricycle-03,toucan,tricycle,3,C,C/try-3,e12f2be521ffaeb7a1fa4a766b60c3394b9a7c0c3aaa777728f92c28393cee13,1,0,14,17,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints,
+qwen4-max,toucan-tricycle-03,toucan,tricycle,3,D,D/try-3,7299612bcafd58c504441f0f6444caa2412eef4e465c466ec5a696392b24f3d5,1,0,10,17,24,24,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|road_motion,
+qwen4-max,ostrich-bicycle-01,ostrich,bicycle,1,A,A,6d99e3c44e90499e9a7f253751be6f69ad123a1cee71c1b2cb528a30e82a42db,1,0,11,16,0,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-bicycle-01,ostrich,bicycle,1,B,A,6d99e3c44e90499e9a7f253751be6f69ad123a1cee71c1b2cb528a30e82a42db,1,0,11,16,0,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-bicycle-01,ostrich,bicycle,1,C,A,6d99e3c44e90499e9a7f253751be6f69ad123a1cee71c1b2cb528a30e82a42db,1,0,11,16,0,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-bicycle-01,ostrich,bicycle,1,D,D/try-3,b11fcf68daba01fa3d3a5bfbe7f806d3b13fc28ba705e25678054a943a28e153,1,0,14,16,96,96,0.0,leg_observations|bilateral_joints,
+qwen4-max,ostrich-bicycle-02,ostrich,bicycle,2,A,A,de3b054f375732f97845ca71c72958595c7c2fa0781e9f8daf502cbbbd9e2eb2,0,0,0,0,,,,,"Invalid or unexpected token | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,ostrich-bicycle-02,ostrich,bicycle,2,B,B/try-3,2e6810305f5a884a305587a9ea3c6ac9366c57a9cfc03991275c29e6b6d0b0f9,1,0,11,16,96,96,0.0,l_top_moves_forward|r_top_moves_forward|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-bicycle-02,ostrich,bicycle,2,C,C/try-2,391ea82f5f63c16da1e1ac8a1995c227350a24fa8ab6035377ae7000cfd1d0d6,1,0,13,16,28,28,0.0,l_foot_supported|r_foot_supported|road_motion,
+qwen4-max,ostrich-bicycle-02,ostrich,bicycle,2,D,D/try-3,120edeacb7b97355b151075e0792a0dfd3028b358370651f026f4beb98203b6d,1,0,13,16,0,0,0.0,l_foot_supported|r_foot_supported|road_motion,
+qwen4-max,ostrich-bicycle-03,ostrich,bicycle,3,A,A,7ff5c1b0d22cdb53ba336e6aeac6691aaf1f3ca60228fddc38933ac879509d32,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,ostrich-bicycle-03,ostrich,bicycle,3,B,B/try-3,22387b3205926143cc0171d06f47c6fb498f721d4e2ea50eb05166faab823185,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,ostrich-bicycle-03,ostrich,bicycle,3,C,C/try-3,,0,0,0,0,,,,,Expected one complete HTML document.
+qwen4-max,ostrich-bicycle-03,ostrich,bicycle,3,D,D/try-3,b00b3fa301040c464b340650d5fdf3752b8030020b1163c7f0453acf60e6db82,1,1,16,16,96,96,0.0,,
+qwen4-max,ostrich-tricycle-01,ostrich,tricycle,1,A,A,ce3d28537635b3ef4191073f64347617b32ab362bbefb9add3bb1f493e319b2e,0,0,0,0,,,,,"Identifier 'pole' has already been declared | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,ostrich-tricycle-01,ostrich,tricycle,1,B,B/try-3,c110482db1e7f8b730f32a84a94bbdfc18a24345ab9c0787dac998cfe6bf1101,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,ostrich-tricycle-01,ostrich,tricycle,1,C,C/try-3,46586c24435b90ccb85c07cfb9ba03f6af379fbf8effaf492ef3ac8e780c27ec,1,0,9,17,7,7,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|leg_observations|bilateral_joints,
+qwen4-max,ostrich-tricycle-01,ostrich,tricycle,1,D,D/try-2,88be572d68785a0f9f475e0915082001380dcda0c9f8a11aa1bc50dc03ca9eee,1,0,12,17,0,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-tricycle-02,ostrich,tricycle,2,A,A,e280c8bb882934f38a56b77d5848780fdc08bf100a1f091b5244e60ebd7e8932,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen4-max,ostrich-tricycle-02,ostrich,tricycle,2,B,B/try-3,4001e7b30ea2f24aa9891c13b1166482221d9b5b6e8a69617036d0796c419a3b,1,0,12,17,96,96,0.0,wheels_stay_in_plane|l_cycling_plane|r_cycling_plane|all_three_wheel_planes|road_motion,
+qwen4-max,ostrich-tricycle-02,ostrich,tricycle,2,C,C/try-2,b9653a7c0d7deff2d3bfa59eccd3f372d11fefe66266a78b586dc4bcdab64e4f,1,0,14,17,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints,
+qwen4-max,ostrich-tricycle-02,ostrich,tricycle,2,D,D/try-2,5d7615f571aeca4585e493c1c8a39120ee9718b4d56f01d5407fe35fd8e95193,1,0,10,17,96,96,0.0,wheels_stay_in_plane|l_cycling_plane|r_cycling_plane|all_three_wheel_planes|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-tricycle-03,ostrich,tricycle,3,A,A,67794799492d26bc7d83c566bc6dc1b1ecade2f7f09ec8950deca667ef7861e6,1,0,7,17,0,0,0.0,wheels_stay_in_plane|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|all_three_wheel_planes|bilateral_joints|road_motion,
+qwen4-max,ostrich-tricycle-03,ostrich,tricycle,3,B,B/try-1,6e04c5e6639f01a3b13781c43d93f3cc3a2708c1d1401923ee15cbfa09898530,1,0,10,17,96,96,9.4,wheels_stay_in_plane|l_cycling_plane|l_top_moves_forward|r_cycling_plane|r_top_moves_forward|all_three_wheel_planes|road_motion,
+qwen4-max,ostrich-tricycle-03,ostrich,tricycle,3,C,C/try-1,78727716ff324f668100a60d362820ce55cddcc70dc574dbb26ce7c37a173af0,1,0,12,17,0,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen4-max,ostrich-tricycle-03,ostrich,tricycle,3,D,D/try-2,6779665af41575f0be754fc3f18d31f742985b33bd9b7ba09bb72dd59f5afb9e,1,0,12,17,96,96,0.0,wheels_stay_in_plane|l_cycling_plane|r_cycling_plane|all_three_wheel_planes|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-01,toucan,bicycle,1,A,A,64810c3b454b2a4a08c555f36d4b744c85658b3ecd14777d907e31957bd8a655,0,0,0,0,,,,,Fixed-camera 3D canvas did not advance.
+deepseek-v4.1-flash-1017,toucan-bicycle-01,toucan,bicycle,1,B,B/try-1,51d18d5f5929fc530ba8f6000f48d03abbc53e24a76b37dc848ecd15c10ea70f,1,0,10,16,56,56,0.0,wheels_stay_in_plane|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-01,toucan,bicycle,1,C,C/try-3,1620ef0502f40b3f78ef1ecfc00ff3da82312d44545ef23903243615ba9a8382,1,0,10,16,0,0,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_foot_supported|r_foot_supported|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-01,toucan,bicycle,1,D,D/try-3,f2d2e53351b4fcdd3cc9c20c68d359fd1b20463197a349490b80e1483174eaff,1,0,13,16,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints,
+deepseek-v4.1-flash-1017,toucan-bicycle-02,toucan,bicycle,2,A,A,b531cd83406816d24f70444203f051c7d7016052d3e5ab2a325227d0ffd0167a,1,0,8,16,0,0,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-02,toucan,bicycle,2,B,B/try-2,0e70a0764cc8cedea2124047a59ea3ebd30322074462a5b6953b02538fb84775,1,0,11,16,0,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-02,toucan,bicycle,2,C,C/try-2,bbdfadea6b59cdc4d28be3bc9c1093e3cf18a60c6a43a50d5acf942e994bf9dc,1,0,10,16,2,2,,front_wheel_turns_forward|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-02,toucan,bicycle,2,D,D/try-3,4890b410d147a89abfb54d12b3cc5fb4d5f05575d29cde215ae2588e6b79b387,1,1,16,16,96,96,0.0,,
+deepseek-v4.1-flash-1017,toucan-bicycle-03,toucan,bicycle,3,A,A,90f87ed16acd9250bcd7098fde8a754b7471b0cf63afa0aabd44702fc29fd7fc,1,0,5,16,2,4,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-03,toucan,bicycle,3,B,B/try-2,2e4eb957700a079dea45b514199ffc10d48843ddd436ca18bafe0d8bfbafa0e9,1,0,7,16,0,0,0.0,wheels_stay_in_plane|l_top_moves_forward|l_foot_supported|r_top_moves_forward|r_foot_supported|leg_observations|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-03,toucan,bicycle,3,C,C/try-2,fffffd04c375bb2bda135b5421f9fdc84ba8b71ea7a047636853690a67041539,1,0,11,16,0,0,0.0,l_foot_supported|r_top_moves_forward|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-bicycle-03,toucan,bicycle,3,D,D/try-3,c487bcfa7463c667ad3eb2b5797ae0cd4cada4919df5da9aea9fe7f183d045fb,1,0,12,16,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-01,toucan,tricycle,1,A,A,4605019584bcd07a70d4f4fc9ad22c1900ad53f658ac3685ce8729e4761e119a,1,0,12,17,0,0,90.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-01,toucan,tricycle,1,B,A,4605019584bcd07a70d4f4fc9ad22c1900ad53f658ac3685ce8729e4761e119a,1,0,12,17,0,0,90.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-01,toucan,tricycle,1,C,A,4605019584bcd07a70d4f4fc9ad22c1900ad53f658ac3685ce8729e4761e119a,1,0,12,17,0,0,90.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-01,toucan,tricycle,1,D,D/try-3,e9961fbcaff4e48214ddc862495aa307f40ee70fa20c0f66b34b64f6f7a4e812,1,0,12,17,0,38,0.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-02,toucan,tricycle,2,A,A,732fd839351201efd105a6894dafe944a4ef5fe6ed7da6b939e1aa6616ddf0a2,1,0,10,17,96,96,0.0,wheels_stay_in_plane|l_cycling_plane|r_cycling_plane|all_three_wheel_planes|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-02,toucan,tricycle,2,B,B/try-2,cfc523ba1aa39d1a85cb68508bbec848badf6688f775f73fc15aaf5ee6da77fd,1,0,13,17,0,0,90.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-02,toucan,tricycle,2,C,C/try-1,6e76a2f1d2c1abe59fab4f130af455e7d8795332569414c204824e52789dcba2,1,0,12,17,6,6,0.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-02,toucan,tricycle,2,D,D/try-3,fb770c8e965a096961f15f0b2fec04d968de8d498900c7698f8e2cc10dea8d33,1,0,13,17,1,1,0.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-03,toucan,tricycle,3,A,A,0b802a05cb35262e702ae7d8dfd443fc6ef02156ca9000adbb818f687e115a24,1,0,11,17,10,10,90.0,front_wheel_turns_forward|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-03,toucan,tricycle,3,B,B/try-3,a27f48c3cd18010e422121e8e384dbea2dbed183d72a78b0bd8e1fbbe73c9c77,1,0,12,17,20,26,,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-03,toucan,tricycle,3,C,A,0b802a05cb35262e702ae7d8dfd443fc6ef02156ca9000adbb818f687e115a24,1,0,11,17,10,10,90.0,front_wheel_turns_forward|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,toucan-tricycle-03,toucan,tricycle,3,D,D/try-3,3f36f9c8f1a8cf08922d2e8840e91225975cd2e87528465b07bad3027ac962f1,1,0,14,17,4,4,0.0,l_foot_supported|r_foot_supported|bilateral_joints,
+deepseek-v4.1-flash-1017,ostrich-bicycle-01,ostrich,bicycle,1,A,A,446606446cfb876a6ea9d9e6d6ae2e61a1c2eb64164c034b12fb96f38a9b1dfd,1,0,10,16,8,8,0.0,wheels_stay_in_plane|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-01,ostrich,bicycle,1,B,B/try-1,81fb699c65e6a09751763d2684bc60e7928bed68994c1dafa4b873162282ce8b,1,0,10,16,32,32,0.0,wheels_stay_in_plane|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-01,ostrich,bicycle,1,C,A,446606446cfb876a6ea9d9e6d6ae2e61a1c2eb64164c034b12fb96f38a9b1dfd,1,0,10,16,8,8,0.0,wheels_stay_in_plane|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-01,ostrich,bicycle,1,D,D/try-3,28e27b5ce5dfad71ac23e2277dabd4bfa3c81391cae9582ad33d62951cfd41c6,1,0,12,16,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-02,ostrich,bicycle,2,A,A,a1e94dfe89e6483b2e5a4e5c5a198ddc6d977c592790a92e3c4acdd98cb30d1c,1,0,6,16,96,96,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|r_cycling_plane|r_top_moves_forward|pedals_opposed|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-02,ostrich,bicycle,2,B,B/try-3,24cdb644b16f6a84082d40ff6f6fa4a581015acc95e3ac63f954caeed0a304ff,1,0,11,16,96,96,0.0,wheels_stay_in_plane|front_wheel_turns_forward|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-02,ostrich,bicycle,2,C,C/try-1,4dea2f23e9734e3eb019d67e8347f269810f0e078f621c4d23ddb2c29890db50,1,0,11,16,0,2,0.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-02,ostrich,bicycle,2,D,D/try-3,ab20496230da06cec2e71b019047fe9407ed470c313f308806060869d7bbdc10,1,0,13,16,96,96,0.0,pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-03,ostrich,bicycle,3,A,A,f82830ad83a245f9b2f9e505a2dd1dd9df06aa6c2538143b4f3345f1b491965b,1,0,9,16,12,12,90.0,wheels_stay_in_plane|l_top_moves_forward|l_foot_supported|r_top_moves_forward|r_foot_supported|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-03,ostrich,bicycle,3,B,A,f82830ad83a245f9b2f9e505a2dd1dd9df06aa6c2538143b4f3345f1b491965b,1,0,9,16,12,12,90.0,wheels_stay_in_plane|l_top_moves_forward|l_foot_supported|r_top_moves_forward|r_foot_supported|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-03,ostrich,bicycle,3,C,C/try-3,e5a85e34860869b56146d47cf0dd42f89ff47f00c34972ff0c333c069a3aaefe,1,0,12,16,0,2,0.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-bicycle-03,ostrich,bicycle,3,D,D/try-3,b24c57e5bf8c2defce566b15e1ab16db445a341975dd40d7b993e6d58f41946e,1,0,14,16,0,0,0.0,l_foot_supported|r_foot_supported,
+deepseek-v4.1-flash-1017,ostrich-tricycle-01,ostrich,tricycle,1,A,A,cbf0f12a483d7b33d60ea5ecb509e3cbeea6c0773e35c4df88d9561ae0200c69,0,0,0,0,,,,,"missing ) after argument list | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+deepseek-v4.1-flash-1017,ostrich-tricycle-01,ostrich,tricycle,1,B,B/try-1,d1c70b1e0d600ccb7aa6c095ad1e7288808507c78c09440518e49fad5f7fe5b9,1,0,12,17,0,0,90.0,l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-01,ostrich,tricycle,1,C,C/try-3,c61bbe2da7c3a76f803b7ed521776e0f9eceaccd6b619cbd57c22904ccf795c8,1,0,8,17,0,2,,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-01,ostrich,tricycle,1,D,D/try-2,1df5525dc559506afb70b6a37e1a460b1113aff5c38e908e78f594a8319c6ea1,1,0,13,17,0,0,,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-02,ostrich,tricycle,2,A,A,4766220b9cce8224d8b2205d37228f48e4e6ccdaac3a1f6808fdcec1186f54c2,1,0,7,17,0,0,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|leg_observations|bilateral_joints|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-02,ostrich,tricycle,2,B,B/try-1,7b4a778bd1f69fbd028cbece8dbf8fa428f9bd0a6193132bdd5ea25f07c7c97c,1,0,14,17,2,2,0.0,l_foot_supported|r_foot_supported|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-02,ostrich,tricycle,2,C,C/try-1,ac2c495f3c441fd763302d8dc0f1671ba7129df94432ed299a2c46876425c293,1,0,11,17,36,36,6.31,wheels_stay_in_plane|l_foot_supported|r_foot_supported|all_three_wheel_planes|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-02,ostrich,tricycle,2,D,D/try-3,96008b29c14b3b598e946c7abd0bb5344ae1034fef54da554875de9ebac987d8,1,0,12,17,2,0,0.0,l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-03,ostrich,tricycle,3,A,A,185254c0f3dd95d0a28c44040195968336700ab7dd0a4d1d66a70b906bbf49f9,1,0,7,17,0,0,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|pedals_opposed|all_three_wheel_planes|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-03,ostrich,tricycle,3,B,B/try-1,447e1e70faaaa1067de7eb085abf4c20dbf922155b739a98bc1d69a3eaea5ffc,1,0,13,17,0,0,0.0,l_foot_supported|r_foot_supported|bilateral_joints|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-03,ostrich,tricycle,3,C,C/try-2,123fa9d0e9cc078c08c2096b7480a6297a4b29d51d34dc1fe6ca34839753117e,1,0,9,17,48,44,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|wheel_surface_motion|road_motion,
+deepseek-v4.1-flash-1017,ostrich-tricycle-03,ostrich,tricycle,3,D,D/try-3,65c7c79773903430c259690488cbc662bcc13c6be7c7a4670d37e4135259210e,1,0,15,17,96,96,0.0,l_top_moves_forward|road_motion,
+qwen3.8-flash,toucan-bicycle-01,toucan,bicycle,1,A,A,dff5a471e16dd8c852aaf9dd70d7746f6643ec9a5a4b08e07d9f87e7561f4f0a,0,0,0,0,,,,,"http://pelican.local/addons/controls/OrbitControls.js | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-bicycle-01,toucan,bicycle,1,B,B/try-1,daa12cdb562e0da47795f8f661e6d911aceb680043c0b01bc182aeaaaa230e64,1,0,0,4,,,0.0,leg_observations|bilateral_joints|wheel_surface_motion|road_motion,Missing or nonfinite world coordinates
+qwen3.8-flash,toucan-bicycle-01,toucan,bicycle,1,C,C/try-3,d90df65fca47252257330c9aa4e54c9725870c43a36f3cf857ecec25fb0415cb,1,0,4,16,0,0,,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|leg_observations|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-bicycle-01,toucan,bicycle,1,D,D/try-3,1a7c15403b2c0f5dfd56bee491af2a117ba4beb3f2210276b798b32c52f02bc5,1,0,9,16,0,0,0.0,front_wheel_turns_forward|l_top_moves_forward|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-bicycle-02,toucan,bicycle,2,A,A,6ed8f5e8a77420a5edd6e60471ba70d848e164b1ec00b68dfffcdb9e08371cf5,0,0,0,0,,,,,"Identifier 'place' has already been declared | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-bicycle-02,toucan,bicycle,2,B,B/try-3,4dc3eb689727c13cd752107a94caca916208242fe4495651de93298eb947bb7b,0,0,0,0,,,,,"Cannot convert undefined or null to object | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-bicycle-02,toucan,bicycle,2,C,C/try-3,b2858f5d055c20748097cea30675dbd345cf3cdd3ce07cb736ffcc532941f071,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-bicycle-02,toucan,bicycle,2,D,D/try-2,9866653d84b8cf48f958efbcffa0b2049ca4998e0a7ba725f81b0d87efefef5d,1,0,5,16,0,2,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-bicycle-03,toucan,bicycle,3,A,A,7af1382f1b38951561ce0bb9a2d584078b923d81531de57c2c5c072b6ce23ce4,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-bicycle-03,toucan,bicycle,3,B,B/try-1,8f5d06eec9b660aa65f90c251750f0c151308923369eb1bcb355d77c72589092,1,0,10,16,0,0,0.0,wheels_stay_in_plane|l_foot_supported|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-bicycle-03,toucan,bicycle,3,C,C/try-3,9221e54dcb2569c05e4fbb1cffbdb8b56da8bf4ce73f587e96672e0b0a2d7fec,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-bicycle-03,toucan,bicycle,3,D,D/try-3,8fac42d31d9702bd98fe0766c2e37da10f284e3a75afe9ad60b43f4935f824ba,1,0,4,16,8,8,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|pedals_opposed|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-tricycle-01,toucan,tricycle,1,A,A,51cb06f4df99f58047394b708e15e4d0a4c43ee3aafbf51ba90052e823340dd2,0,0,0,0,,,,,"Cannot read properties of undefined (reading 'getWorldPosition') | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-tricycle-01,toucan,tricycle,1,B,B/try-2,c8ac8678a774fbe25fce32d01cc88e34003ebc6bf2c5b0d9a46ee68df512f48b,1,0,6,17,0,0,0.0,wheels_stay_in_plane|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|all_three_wheel_planes|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-tricycle-01,toucan,tricycle,1,C,C/try-2,6e1d0d2f22ffc7a1d96d6b658dc0922bec3f544fccffad100d1fa322009cbaa0,1,0,6,17,0,0,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|pedals_opposed|all_three_wheel_planes|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-tricycle-01,toucan,tricycle,1,D,D/try-3,5511b8ff50d2b85ee2946792715fc5d3c95497c598339739298afb0e92d1559b,1,0,9,17,0,2,0.0,wheels_stay_in_plane|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|all_three_wheel_planes|bilateral_joints|road_motion,
+qwen3.8-flash,toucan-tricycle-02,toucan,tricycle,2,A,A,c6d1a4a13ad2219275433971825de4500725895f8a23140c00d05f2b09ad1046,0,0,0,0,,,,,"Identifier 'crankR' has already been declared | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-tricycle-02,toucan,tricycle,2,B,B/try-2,455b52af73c1953c7882fba0bc000715f7f4a9e2d0383678b5369f5dc5ae8c3b,1,0,7,17,0,0,0.0,front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-tricycle-02,toucan,tricycle,2,C,C/try-2,a722982ec60baa9a93870ef48cf54a23f06d6b5fdadb7141ae98d8e8e45ecb7d,1,0,0,4,,,0.86,leg_observations|bilateral_joints|wheel_surface_motion|road_motion,"node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Error: Missing physical contact surfaces
+    at window.measureFrame (eval at evaluate (:290:30), <anonymous>:85:28)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:11)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at redesign/replay_six.mjs:151:27
+
+Node.js v26.0.0"
+qwen3.8-flash,toucan-tricycle-02,toucan,tricycle,2,D,D/try-2,6d981056455aa010f08585e9f5a986ce17ebefb5e2fde24fb1406fe88855f852,1,0,6,17,0,0,0.0,front_wheel_turns_forward|l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|leg_observations|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,toucan-tricycle-03,toucan,tricycle,3,A,A,94de0f691cf796390564ad5dda9e1856a1f8a5ab57073088eb2e2c3038bec0ee,0,0,0,0,,,,,"http://pelican.local/vendor/controls/OrbitControls.js | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-tricycle-03,toucan,tricycle,3,B,B/try-3,f1a0d4af652ba67bbda243c35b140d895a3303af55229313d0a334233e3d4f6d,0,0,0,0,,,,,"Invalid or unexpected token | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,toucan-tricycle-03,toucan,tricycle,3,C,C/try-3,5f467c7ceb7bed617d1181645b23411926371e42444f8e7eb3c8e80c1427a48b,1,0,11,17,0,0,0.0,l_top_moves_forward|l_foot_supported|r_foot_supported|leg_observations|bilateral_joints|road_motion,
+qwen3.8-flash,toucan-tricycle-03,toucan,tricycle,3,D,D/try-3,292637fec96ff70dc3e8a405106dbb2d31e7ec0291f617c22d7a071176b9be2c,0,0,0,0,,,,,"setPaused: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setPaused (http://pelican.local/:385:106)
+    at eval (eval at evaluate (:290:3 | setView: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setView (http://pelican.local/:388:74)
+    at eval (eval at evaluate (:290:30), | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate | setView: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setView (http://pelican.local/:388:74)
+    at eval (eval at evaluate (:290:30), | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate | setView: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setView (http://pelican.local/:388:74)
+    at eval (eval at evaluate (:290:30), | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate | setView: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setView (http://pelican.local/:388:74)
+    at eval (eval at evaluate (:290:30), | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate | setTime: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at Proxy.setTime (http://pelican.local/:389:62)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate | setView: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setView (http://pelican.local/:388:74)
+    at eval (eval at evaluate (:290:30), | setPaused: page.evaluate: TypeError: _q.copy(...).sub is not a function
+    at orient (http://pelican.local/:336:78)
+    at updateKinematics (http://pelican.local/:352:4)
+    at renderNow (http://pelican.local/:390:22)
+    at Proxy.setPaused (http://pelican.local/:385:106)
+    at eval (eval at evaluate (:290:3 | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-01,ostrich,bicycle,1,A,A,3a60d24ef79df92943b6a152a755ca02732cd5d1012bbf8681cdfd860230db07,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-01,ostrich,bicycle,1,B,B/try-3,3347459987a59d55bb5439c95b3b400c51e0d602761246de0e800c2604e39408,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-01,ostrich,bicycle,1,C,C/try-2,99e32c335151a735800b58de581c676ac9d9ff6822234e8e92fd84333f3cda81,1,0,8,16,0,0,0.0,front_wheel_turns_forward|l_foot_supported|r_top_moves_forward|r_foot_supported|leg_observations|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,ostrich-bicycle-01,ostrich,bicycle,1,D,D/try-3,2bef9cb84b2c3135b652e11a69c5ea61abd3d9003d3e403bd1f2be42afb4fa5a,1,0,8,16,0,0,0.0,l_cycling_plane|l_top_moves_forward|l_foot_supported|r_cycling_plane|r_top_moves_forward|r_foot_supported|bilateral_joints|road_motion,
+qwen3.8-flash,ostrich-bicycle-02,ostrich,bicycle,2,A,A,7b97eab575f7e29e9ef29c47ebcb0bb52f90459d6e80dfd242466136d1f09830,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-02,ostrich,bicycle,2,B,B/try-1,638f903d7db7267215f5210ff3badbbbc2b19b711955cc2a32903d91a2cb49e3,1,0,0,4,,,0.0,leg_observations|bilateral_joints|wheel_surface_motion|road_motion,"node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Error: Missing physical contact surfaces
+    at window.measureFrame (eval at evaluate (:290:30), <anonymous>:85:28)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:11)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at redesign/replay_six.mjs:151:27
+
+Node.js v26.0.0"
+qwen3.8-flash,ostrich-bicycle-02,ostrich,bicycle,2,C,C/try-3,3391470a0018de24bf0d593dbf236b2a0fd2c9500d21b2f0c8bfff5fc358d195,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-02,ostrich,bicycle,2,D,D/try-3,57087279c737cc39798387bd0c69c4b6976aabbe4369c7f7b5ab8cd77d97fda4,0,0,0,0,,,,,Fixed-camera 3D canvas did not advance.
+qwen3.8-flash,ostrich-bicycle-03,ostrich,bicycle,3,A,A,5787588b198fd5557b7d9559cb9a74ba5dcdbde4b7bcbe6aac16d5c24a3615ec,0,0,0,0,,,,,"BB is not defined | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-03,ostrich,bicycle,3,B,B/try-3,000f0bab42a69fc1d04387797f18e474b452d98dcf33957dd4e169d91f72a613,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-03,ostrich,bicycle,3,C,C/try-3,9bef6fe26e62a622b7d4494aed4e6a18a901c0ecfb984ffdda6741944eb3d18a,0,0,0,0,,,,,"setPaused: page.evaluate: ReferenceError: render is not defined
+    at Object.setPaused (http://pelican.local/:228:65)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setView: page.evaluate: ReferenceError: render is not defined
+    at Object.setView (http://pelican.local/:228:98)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setView: page.evaluate: ReferenceError: render is not defined
+    at Object.setView (http://pelican.local/:228:98)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setView: page.evaluate: ReferenceError: render is not defined
+    at Object.setView (http://pelican.local/:228:98)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:24)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setView: page.evaluate: ReferenceError: render is not defined
+    at Object.setView (http://pelican.local/:228:98)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setTime: page.evaluate: ReferenceError: render is not defined
+    at Object.setTime (http://pelican.local/:228:166)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setView: page.evaluate: ReferenceError: render is not defined
+    at Object.setView (http://pelican.local/:228:98)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: ReferenceError: render is not defined
+    at Object.setPaused (http://pelican.local/:228:65)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:46)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-bicycle-03,ostrich,bicycle,3,D,D/try-3,fbe02a8c61c2a980d006339360cdb42fe6dc20b79ae2fc0da97bf4eb0b36e854,1,0,11,16,0,0,0.0,front_wheel_turns_forward|l_foot_supported|r_foot_supported|wheel_surface_motion|road_motion,
+qwen3.8-flash,ostrich-tricycle-01,ostrich,tricycle,1,A,A,e97bfbb818842ee4ff61dc1b0dc0477853651f13ba5744b5b7f9a9f36fe71cfc,0,0,0,0,,,,,"quaternion.setFromRotationMatrix is not a function | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: quaternion.setFromRotationMatrix is not a function
+    at Matrix4.decompose (http://pelican.local/vendor/three.core.js:12386:14)
+    at Group.getWorldQuaternion (http://pelican.local/vendor/three.core.js:14142:20)
+    at solveLeg (http://pelican.local/:275:19)
+    at update | setPaused: page.evaluate: TypeError: quaternion.setFromRotationMatrix is not a function
+    at Matrix4.decompose (http://pelican.local/vendor/three.core.js:12386:14)
+    at Group.getWorldQuaternion (http://pelican.local/vendor/three.core.js:14142:20)
+    at solveLeg (http://pelican.local/:275:19)
+    at update | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-01,ostrich,tricycle,1,B,B/try-3,49df98b1f48573b90165c9e51dd894e20765db71c814aecebc83b68183fd22a3,0,0,0,0,,,,,"Cannot access 'timeSlider' before initialization | clock.runFor: ReferenceError: Cannot access 'timeSlider' before initialization
+    at update (http://pelican.local/:301:3)
+    at animate (http://pelican.local/:306:95)
+    at ClockController._callFirstTimer (<anonymous>:252:20)
+    at ClockController._runTo (<anonymous>:110:33)
+    at ClockController.runFor (<anonymous>:102:16)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:33)
+    at eval (<anonymous>)
+    at UtilityScript.evaluate (<anonymous>:290:30)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-01,ostrich,tricycle,1,C,C/try-3,2e4fc10284358cf4004bb0de8010c413b3011b4a70b243ecc20efa6c9cccad9c,1,0,10,17,0,0,90.0,wheels_stay_in_plane|l_foot_supported|r_foot_supported|all_three_wheel_planes|leg_observations|bilateral_joints|road_motion,
+qwen3.8-flash,ostrich-tricycle-01,ostrich,tricycle,1,D,D/try-2,b320392c07c47c80bfb1f3775603c7bc467c40312ad31c6ff92c90485c4a7870,1,0,10,17,0,0,0.0,front_wheel_turns_forward|l_foot_supported|r_foot_supported|pedals_opposed|bilateral_joints|wheel_surface_motion|road_motion,
+qwen3.8-flash,ostrich-tricycle-02,ostrich,tricycle,2,A,A,651033ff2a4dd205505d19d52529d447a705451aff5c39a58d4103ef92bb5f4f,0,0,0,0,,,,,"Identifier 'pedalR' has already been declared | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-02,ostrich,tricycle,2,B,B/try-3,68ac67343a3030f8eab1325887668b30cb783fe5bf3156a338ebe32f0dc68f30,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-02,ostrich,tricycle,2,C,C/try-3,909b2fb96fe6ea71035a5876e8ba5c40d2d0b183dab922940d0f0bf565480655,0,0,0,0,,,,,"Cannot assign to read only property 'position' of object '#<Mesh>' | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-02,ostrich,tricycle,2,D,D/try-2,c2a0826d3c6b1a2b36c85e8315894770b8874c8e2da5707eb92e20b0b0dfd6bb,1,0,1,4,,,,bilateral_joints|wheel_surface_motion|road_motion,"node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.evaluate: Error: Missing torus tire
+    at window.measureFrame (eval at evaluate (:290:30), <anonymous>:66:28)
+    at eval (eval at evaluate (:290:30), <anonymous>:1:11)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at redesign/replay_six.mjs:151:27
+
+Node.js v26.0.0"
+qwen3.8-flash,ostrich-tricycle-03,ostrich,tricycle,3,A,A,61a30575df112e72f976577c1f8ae718663923012eb9ade6351af1f624a4f9a4,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-03,ostrich,tricycle,3,B,B/try-3,dcaadfd057341977c3aa92e6c8bddae12dcf0326e0c6ac51ae28ccf965851892,0,0,0,0,,,,,"2D canvas is prohibited by the task | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-03,ostrich,tricycle,3,C,C/try-3,23b1c1194e2e5096d3f227a3cfef33cfd5902f34ff6a5d1fb3690e08c02e7486,0,0,0,0,,,,,"Failed to resolve module specifier ""three/addons/controls/OrbitControls.js"". Import Map: ""three/addons/controls/OrbitControls.js"" matches with ""three/addons/"" but is blocked by a null value | Missing required ready/setTime/setView/setPaused interface; time samples are fallback observations, not pedal phases. | setView: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setView')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | setPaused: page.evaluate: TypeError: Cannot read properties of undefined (reading 'setPaused')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:38)
+    at UtilityScript.evaluate (<anonymous>:292:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44) | Orbit and zoom must both move the paused camera."
+qwen3.8-flash,ostrich-tricycle-03,ostrich,tricycle,3,D,D/try-3,e3baf29f15e8b625b521daf73115d5d6778dd88db3a50fa45b6ccfc1d2d649d3,1,0,5,17,0,0,0.0,wheels_stay_in_plane|front_wheel_turns_forward|l_cycling_plane|l_foot_supported|r_cycling_plane|r_foot_supported|pedals_opposed|all_three_wheel_planes|leg_observations|bilateral_joints|wheel_surface_motion|road_motion,

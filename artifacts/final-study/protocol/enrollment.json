@@ -1,0 +1,60 @@
+{
+  "models": [
+    "qwen4-max",
+    "deepseek-v4.1-flash-1017",
+    "qwen3.8-flash"
+  ],
+  "tasks": [
+    [
+      "toucan",
+      "bicycle"
+    ],
+    [
+      "toucan",
+      "tricycle"
+    ],
+    [
+      "flamingo",
+      "bicycle"
+    ],
+    [
+      "flamingo",
+      "tricycle"
+    ]
+  ],
+  "repeats": 3,
+  "arms": {
+    "A": 0,
+    "B": 3,
+    "C": 3,
+    "D": 3
+  },
+  "first_draw_shared": true,
+  "token_limits": {
+    "qwen4-max": {
+      "requested": 32000,
+      "effective": 32000,
+      "verified": true
+    },
+    "deepseek-v4.1-flash-1017": {
+      "requested": 32000,
+      "effective": 32000,
+      "verified": true
+    },
+    "qwen3.8-flash": {
+      "requested": 32000,
+      "effective": 32000,
+      "verified": true
+    }
+  },
+  "core_metric_denominator": "all 36 first draws; every missing or invalid scene retained",
+  "selection": "runtime, mechanics, passed check count, most recent slot",
+  "seed": 231126,
+  "comparative_pairs": [
+    "BC",
+    "CD",
+    "AD"
+  ],
+  "human_pairs": 12,
+  "human_repeats": 3
+}

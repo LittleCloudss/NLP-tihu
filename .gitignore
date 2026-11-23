@@ -1,0 +1,12 @@
+.env
+.env.*
+.claude/
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+replay-inputs/
+replay-output/
+artifacts/final-study/cases/
+artifacts/final-study/protocol/runtime-locks/

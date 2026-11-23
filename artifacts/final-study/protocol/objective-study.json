@@ -1,0 +1,83 @@
+{
+  "models": [
+    "qwen4-max",
+    "deepseek-v4.1-flash-1017",
+    "qwen3.8-flash"
+  ],
+  "tasks": [
+    [
+      "toucan",
+      "bicycle"
+    ],
+    [
+      "toucan",
+      "tricycle"
+    ],
+    [
+      "ostrich",
+      "bicycle"
+    ],
+    [
+      "ostrich",
+      "tricycle"
+    ]
+  ],
+  "repeats": 3,
+  "shared_first": true,
+  "additional_calls": {
+    "A": 0,
+    "B": 3,
+    "C": 3,
+    "D": 3
+  },
+  "output_tokens": {
+    "qwen4-max": 32000,
+    "deepseek-v4.1-flash-1017": 32000,
+    "qwen3.8-flash": 32000
+  },
+  "generators": "Each model produces its own first draw and all subsequent candidates. B draws independently. C draws independently with the frozen rig. D uses the same rig, its own source, measured browser diagnostics and one scene image for context. No model visual ratings.",
+  "automatic_endpoints": [
+    "restricted-browser launch, moving WebGL canvas, and effective camera orbit and zoom",
+    "all frozen physical motion checks, both leg chains and wheel surfaces, road direction and relative speed; two road markings; tricycle rear midpoint"
+  ],
+  "endpoints_denominator": "All 12 starts per model per arm. Incomplete code and unavailable physical evidence remain in the denominator.",
+  "selector": "Prefer launch, then mechanical pass, then count of satisfied mechanical checks, then latest candidate. Keep first draw eligible in B/C/D.",
+  "contrasts": [
+    "BC",
+    "CD",
+    "AD"
+  ],
+  "review_seed": 231126,
+  "human": "One AD and one CD comparison per model × task. Draw distinct repeats when possible, at random without judge outcomes. Prefer viewable pairs and distinct programs; include static or non-running first draws with their actual recorded failure surface if needed. Keep a sampling log and identical outputs. Randomize sides, add one reversed repeat per model, then shuffle. 24 unique comparisons and 3 repeats.",
+  "exhibit": "Rank AD within-start conversions, mechanical improvement and resolved concrete faults; prioritize visible, playable comparisons. Museum selects four distinct cases by demonstrable failure category and magnitude; compare actual selected candidate with its paired counterpart. Treat naturalness and humor as pending human judgment.",
+  "historical_exposure": "Repository scan of historical tasks, actual requests, responses, code, and generated scene HTML. Toucan occurred in one unexecuted enrollment, its runner configuration and a mock unit test only. No prior generated toucan or ostrich scenes or species-specific constructors identified.",
+  "calibration": "Historical identical-order-correct preferences: 2/12 and 3/12 across two locked cohorts. Owner authorized objective endpoints and human review regardless of the VLM gate.",
+  "source_hashes": {
+    "redesign/formal_rides.py": "b49653a115a23ca33d5177b96ad5e6732356b7e7a66015b18b51e57b2ee5ed8b",
+    "redesign/ride_agent.py": "023445cb1081ae174bb950bac25d6f9c3b0ddff0fcca5a8fe3fcff9d402d9e34",
+    "redesign/constraints.js": "ee3bcdbf55e0e5cb267ea6fad6a044d6ed25da8f235ae6524da53756a46936e6",
+    "redesign/course_format.py": "0d5cc375f9df1f42df8807ef72dfe88d7c4578b4875fd1c6524920bd7b9f9cff",
+    "redesign/cycle_workshop.py": "a17b46dfc46cb8cc26ae308c8aca3e5d4c28c7f78c77040229dfeecf73a82cc4",
+    "redesign/unattended.py": "6b348b9a9a05f7053eb73004941e911740b85edff0c891da37d6d15d7f7a26a1",
+    "redesign/leg_diagnosis.py": "f3ad3c3ee8f6118494882fb34539841a8f57590d5c52882a759975f8bb4fc2c2",
+    "redesign/leg_geometry.mjs": "2ac4a877cff49e127bbabd233252ef64530c42e47da46a5015c50a6428b0ece9",
+    "redesign/wheel_probe.mjs": "2cdcfd8821bc1d747c7c588dca9387836cbf3b818f91a2a095a8081830f280cb",
+    "redesign/cycle_probe.mjs": "2d40017294fc3b863ae54cb8d1cf86028ae964b021a9a49afb7899d84974eecf",
+    "redesign/replay_six.mjs": "b0cb8a7755bdba7c030d4a925408f166128cc8c6ed5db7c9687ae092cc3aec37",
+    "redesign/road_direction.py": "3d5d8421f94e116a9a5055a15c3b75e4b19709a97bbd2a6f5e29e3a707ddf6b4",
+    "redesign/road_probe.mjs": "73405b61a7c4babe75c7175cabf508693068a29560036b65dae7c65c81a57bd9",
+    "redesign/road_motion.js": "070b0b496bf55ebcde07edae038aeff0c4e2229e6c3242ed2cece4cef4a905c8",
+    "redesign/paired_legs.py": "c4c3c8383491ff1e556489daa174884ea8817a7be3d6fd72a7bae7655932799e",
+    "redesign/study.py": "948182de51f99102447315d030b58ab37fdebfb6d2cf00c70e88a55ae1c15cfe",
+    "redesign/system.txt": "fe23556738039ad8c7ea57ada21b5986066d52cf793cc85058d043ddbd9af3e9",
+    "lab/dashscope.py": "39cc3d106b082fdde4d2ec74e599bd9bb3f442141db28f47340070086f81a088",
+    "lab/core.py": "2dfbf37de006895c58907ccc90c2ede1998251f7fc188d76d3201fb07f2e6a34",
+    "scripts/capture.mjs": "658e1383c98939138cde63da4bb83209686f8fa63ba89ddc7177f63bbad1db42",
+    "scripts/inspect_tricycle_axles.mjs": "ca4e41a902d6ad589390b41582e7fab6b3e8ef235c769a75acaaec09bd0fd85c",
+    "scripts/final_phase_views.mjs": "668938dc86b8b3e51cd1a1d1ddde94265a9b86ed56ce1ce1ab55f183bf4f31bb",
+    "scripts/final_blind_review.html": "4fd0b202f1de24189511924091a465f4e7fc9441253ff1fe6d2a1c4615fd112a",
+    "tests/fixtures/final_riding_controls.py": "d5dae4eade1151cb77c69d217b993809e0bb64e0b5c488297b245d31346d9a99",
+    "prompts/task.txt": "cc384dd9fa9ff211f3bbc3a4dc99ee62df676127fa44160f140f51b465247a5f",
+    "package-lock.json": "e5a7c2b706dc3ac6f3dcbb2a4ec672ec5e7c3934edb8c35d87984826d054ec7c"
+  }
+}

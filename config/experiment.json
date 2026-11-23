@@ -1,0 +1,92 @@
+{
+  "schema_version": 3,
+  "study": "PelicanLab",
+  "models": [
+    "qwen4-max",
+    "qwen3.8-flash",
+    "deepseek-v4.1-flash-1017"
+  ],
+  "arms": [
+    "independent",
+    "errors",
+    "visual"
+  ],
+  "repeats": 3,
+  "calls_per_arm": 3,
+  "max_output_tokens": 20000,
+  "temperature": 0.7,
+  "thinking": "disabled",
+  "total_budget_cny": 30,
+  "pilot_budget_cny": 2,
+  "per_request_reserve_cny": 0.3,
+  "max_input_bound": 200000,
+  "prices": {
+    "deepseek": {
+      "model": "deepseek-flash",
+      "input_per_million_cny": 2,
+      "output_per_million_cny": 8
+    },
+    "glm": {
+      "model": "glm-4.6v-flash",
+      "input_per_million_cny": 0,
+      "output_per_million_cny": 0
+    },
+    "qwen": {
+      "model": "qwen4-max",
+      "base_url": "https://dashscope.aliyuncs.com/apps/anthropic"
+    },
+    "qwen4-max": {
+      "model": "qwen4-max",
+      "base_url": "https://dashscope.aliyuncs.com/apps/anthropic"
+    },
+    "qwen3.8-flash": {
+      "model": "qwen3.8-flash",
+      "base_url": "https://dashscope.aliyuncs.com/apps/anthropic"
+    },
+    "deepseek-v4.1-flash-1017": {
+      "model": "deepseek-v4.1-flash-1017",
+      "base_url": "https://dashscope.aliyuncs.com/apps/anthropic"
+    }
+  },
+  "price_note": "All three study models use DashScope with token accounting. CNY amounts are unknown. The legacy provider prices apply only to earlier configurations.",
+  "tasks": [
+    {
+      "id": "pelican_bicycle",
+      "animal": "pelican",
+      "vehicle": "bicycle",
+      "split": "familiar"
+    },
+    {
+      "id": "duck_bicycle",
+      "animal": "duck",
+      "vehicle": "bicycle",
+      "split": "heldout"
+    },
+    {
+      "id": "flamingo_bicycle",
+      "animal": "flamingo",
+      "vehicle": "bicycle",
+      "split": "heldout"
+    },
+    {
+      "id": "pelican_tricycle",
+      "animal": "pelican",
+      "vehicle": "tricycle",
+      "split": "heldout"
+    },
+    {
+      "id": "duck_tricycle",
+      "animal": "duck",
+      "vehicle": "tricycle",
+      "split": "heldout"
+    }
+  ],
+  "pilot_task": {
+    "id": "dev_pelican_bicycle",
+    "animal": "pelican",
+    "vehicle": "bicycle",
+    "split": "development"
+  },
+  "selection": "Latest launch-valid candidate; otherwise latest. Same rule for every arm. Human score is never used for selection.",
+  "primary_rater": "student-01"
+}

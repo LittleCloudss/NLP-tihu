@@ -1,0 +1,65 @@
+{
+  "original": {
+    "course": true,
+    "mechanics": true,
+    "moving": true,
+    "errors": [],
+    "road": {
+      "observable": true,
+      "pass": true,
+      "angle_deg": 0.0,
+      "road_axis": [
+        2.220446049250313e-16,
+        0,
+        1
+      ],
+      "mark_count": 90,
+      "wheelbase": 0.05372435232595363,
+      "wheel_surface_per_second": 0.10568643993002866,
+      "landmarks": [
+        {
+          "forward_distance": 0.41834,
+          "matching_steps": 95
+        },
+        {
+          "forward_distance": 0.41834,
+          "matching_steps": 95
+        },
+        {
+          "forward_distance": 0.41834,
+          "matching_steps": 95
+        }
+      ],
+      "steps": 95
+    },
+    "checks": {
+      "visible_scene": true,
+      "orbit": true,
+      "zoom": true,
+      "wheels_stay_in_plane": true,
+      "front_wheel_turns_forward": true,
+      "l_cycling_plane": true,
+      "l_top_moves_forward": true,
+      "l_foot_supported": true,
+      "r_cycling_plane": true,
+      "r_top_moves_forward": true,
+      "r_foot_supported": true,
+      "pedals_opposed": true,
+      "all_three_wheel_planes": true,
+      "leg_observations": true,
+      "bilateral_joints": true,
+      "wheel_surface_motion": true,
+      "road_motion": true
+    }
+  },
+  "static": {
+    "course": false,
+    "mechanics": false,
+    "moving": false,
+    "errors": [
+      "Fixed-camera 3D canvas did not advance."
+    ],
+    "road": null,
+    "checks": {}
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Procedural cycling study</title><style>*{box-sizing:border-box}body{margin:0;overflow:hidden}canvas{display:block;touch-action:none}</style>
+<script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script></head><body><script type="module">
+import * as T from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const design = WORLD_SPEC;
+const scene = new T.Scene();
+const renderer = new T.WebGLRenderer({antialias:true});
+document.body.append(renderer.domElement);
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
+const camera=new T.PerspectiveCamera(36,1,.01,2000);
+const controls=new OrbitControls(camera,renderer.domElement);
+const rear=new T.Vector3().fromArray(design.mount.rear),front=new T.Vector3().fromArray(design.mount.front);
+const middle=rear.clone().lerp(front,.5),axis=front.clone().sub(rear); axis.y=0;
+const wheelbase=axis.length();axis.normalize();
+const up=new T.Vector3(0,1,0),side=axis.clone().cross(up);
+const ground=middle.clone().addScaledVector(up,-.321*wheelbase);
+const environment=new T.Group();scene.add(environment);
+environment.quaternion.setFromRotationMatrix(new T.Matrix4().makeBasis(axis,up,side));
+environment.scale.setScalar(wheelbase);environment.position.copy(ground);
+function shape(geometry,color,x,y,z,parent=environment){
+ const mesh=new T.Mesh(geometry,new T.MeshStandardMaterial({color,roughness:.82}));
+ mesh.position.set(x,y,z);mesh.receiveShadow=true;parent.add(mesh);return mesh;
+}
+const colors=design.colors;
+scene.background=new T.Color(colors.sky);
+scene.fog=new T.FogExp2(colors.sky,.026/wheelbase);
+scene.add(new T.HemisphereLight(0xfffcf4,0xc0c7d3,1.75));
+const sun=new T.DirectionalLight(0xffefd3,2.4);sun.position.copy(middle).addScaledVector(axis,4*wheelbase).addScaledVector(side,3*wheelbase).y+=7*wheelbase;
+sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);
+Object.assign(sun.shadow.camera,{left:-2.2*wheelbase,right:2.2*wheelbase,top:2.2*wheelbase,bottom:-2.2*wheelbase,near:.05*wheelbase,far:15*wheelbase});
+sun.shadow.normalBias=.0015*wheelbase;
+sun.target.position.copy(middle);scene.add(sun,sun.target);
+shape(new T.BoxGeometry(150,.09,48),colors.land,0,-.07,0);
+shape(new T.BoxGeometry(100,.045,2.4),colors.road,0,-.0225,0);
+for(const z of [-1.07,1.07])for(let x=-44;x<45;x+=2)shape(new T.BoxGeometry(.88,.004,.030),colors.stripe,x,.003,z);
+const ridge=new T.Group();environment.add(ridge);
+for(let i=0;i<23;i++){
+ const x=(i-11)*2.0, h=1.4+.8*Math.sin(i*1.7), z=-7-.6*Math.cos(i);
+ const hill=shape(new T.IcosahedronGeometry(1,1),colors.foliage,x,-.2,z,ridge);
+ hill.scale.set(2.7,h,1.6);
+}
+for(let i=0;i<30;i++){
+ const x=(i-15)*1.83,z=-2.9-(i%4)*.55;
+ if(design.setting==='town'){
+  const height=.72+.12*(i%4);
+  shape(new T.BoxGeometry(.82,height,.81),i%2?colors.accent:colors.land,x,height/2,z);
+  const roof=shape(new T.ConeGeometry(.77,.47,4),colors.foliage,x,height+.23,z);roof.rotation.y=Math.PI/4;
+  for(const dx of [-.21,.21])shape(new T.BoxGeometry(.16,.20,.02),colors.sky,x+dx,height*.62,z+.41);
+ }else if(design.setting==='coast' && i%3===0){
+  const rock=shape(new T.DodecahedronGeometry(1),colors.accent,x,.07,z);rock.scale.set(.45,.26,.38);
+ }else{
+  const h=.64+.18*(i%3);
+  shape(new T.CylinderGeometry(.028,.045,h,8),colors.accent,x,h/2,z);
+  const leaves=shape(new T.IcosahedronGeometry(.48,1),colors.foliage,x,h+.15,z);
+  leaves.scale.set(.8,1.3,.82);
+ }
+}
+let time=0,paused=false,last=null;
+function render(){renderer.render(scene,camera)}
+function view(name){
+ const eye=name==='front'?[2.65,.72,.35]:name==='side'?[.04,.62,2.48]:[1.00,.83,2.45];
+ controls.target.copy(middle).addScaledVector(up,.30*wheelbase);
+ camera.position.copy(middle).addScaledVector(axis,eye[0]*wheelbase).addScaledVector(up,eye[1]*wheelbase).addScaledVector(side,eye[2]*wheelbase);
+ controls.update();render();
+}
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();render()}
+window.__pelicanLab={ready:true,setPaused(p){paused=Boolean(p);last=null;render()},setView:view,setTime(t){time=t;render()}};
+controls.addEventListener('change',render);addEventListener('resize',resize);resize();view('hero');
+renderer.setAnimationLoop(ms=>{if(!paused&&last!==null)time+=Math.min(.1,(ms-last)/1000);last=ms;render()});
+</script></body></html>

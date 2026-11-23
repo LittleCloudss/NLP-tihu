@@ -1,0 +1,12 @@
+{
+  "matched_text_files": [
+    "artifacts/final-study/protocol/enrollment.json",
+    "redesign/formal_rides.py",
+    "tests/test_final_study.py"
+  ],
+  "scope": "config, prompts, redesign, lab, scripts, web, tests, docs, artifacts; JSON/JSONL/CSV, HTML, Python/JS, text; vendored libraries excluded. Exact English species names/plurals and Chinese names. Previous unexecuted plan and mock unit test separated from actual model dispatches.",
+  "generated_matches": 0,
+  "old_benchmark_tasks": 0,
+  "species_presets": 0,
+  "ostrich_matches": 0
+}

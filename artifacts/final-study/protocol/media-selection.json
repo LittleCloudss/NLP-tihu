@@ -1,0 +1,7 @@
+{
+  "seed": 231126,
+  "primary": "AD and CD once per model and bird/vehicle stratum. Randomized candidate priority set by SHA-256 of protocol seed, model, task, contrast and repeat, with preference for full visual comparability, different source hashes and two distinct repeats. Never select on repair success or judge winner. If a target pair lacks two actual surfaces use the other registered contrasts within the stratum and record substitutions. Exhausted strata spill to unused viewable pairs, preserve model and task coverage where possible.",
+  "panels": "For actual 3D canvases use an identical vehicle-relative side, elevation, FOV, framing and phase schedule. For missing axle anchors align to the other side camera when available and flag. A captured static or error surface may be paired with a working ride when no more informative pair is available. Exclude two blank surfaces. Reviews see no model, method, result, or measurement.",
+  "exposure": "24 distinct case/contrast pairings; 3 additional exact side-swapped repeats, one per model. One click advances. Separate rater storage and study-specific CSV identifiers.",
+  "showcase": "Use real selected AD trajectories. Sort full conversions before partial improvements, then number of failed checks resolved net of regressions, newly supported frames and source order. Museum maximizes distinct measured failure signatures across different starts; severity determines order within a category. Captions identify which checks remain failed; no naturalness score is assigned."
+}

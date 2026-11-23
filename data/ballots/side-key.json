@@ -1,0 +1,572 @@
+{
+  "study": "rides-340deafa42",
+  "items": {
+    "P01": {
+      "model": "qwen4-max",
+      "case": "ostrich-bicycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U06",
+      "repeat_of": null,
+      "sha256": [
+        "120edeacb7b97355b151075e0792a0dfd3028b358370651f026f4beb98203b6d",
+        "391ea82f5f63c16da1e1ac8a1995c227350a24fa8ab6035377ae7000cfd1d0d6"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P02": {
+      "model": "qwen3.8-flash",
+      "case": "toucan-tricycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "C",
+        "D"
+      ],
+      "sample": "U20",
+      "repeat_of": "U20",
+      "sha256": [
+        "a722982ec60baa9a93870ef48cf54a23f06d6b5fdadb7141ae98d8e8e45ecb7d",
+        "6d981056455aa010f08585e9f5a986ce17ebefb5e2fde24fb1406fe88855f852"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P03": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "ostrich-bicycle-02",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U13",
+      "repeat_of": null,
+      "sha256": [
+        "a1e94dfe89e6483b2e5a4e5c5a198ddc6d977c592790a92e3c4acdd98cb30d1c",
+        "ab20496230da06cec2e71b019047fe9407ed470c313f308806060869d7bbdc10"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P04": {
+      "model": "qwen4-max",
+      "case": "toucan-tricycle-01",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "C",
+        "D"
+      ],
+      "sample": "U04",
+      "repeat_of": null,
+      "sha256": [
+        "6e0f4e187b7fc088a47400b41e9d5ece3a57bb3abed2962e2a5d3e587215bf79",
+        "715f2e1250d60a3787c77495b1825042fcdbd0bccff2d779f2e5f6d752e36343"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P05": {
+      "model": "qwen3.8-flash",
+      "case": "ostrich-bicycle-01",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "D",
+        "A"
+      ],
+      "sample": "U21",
+      "repeat_of": null,
+      "sha256": [
+        "2bef9cb84b2c3135b652e11a69c5ea61abd3d9003d3e403bd1f2be42afb4fa5a",
+        "3a60d24ef79df92943b6a152a755ca02732cd5d1012bbf8681cdfd860230db07"
+      ],
+      "camera": "partner camera",
+      "sources": [
+        "phase replay",
+        "native browser replay"
+      ]
+    },
+    "P06": {
+      "model": "qwen3.8-flash",
+      "case": "toucan-tricycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U20",
+      "repeat_of": null,
+      "sha256": [
+        "6d981056455aa010f08585e9f5a986ce17ebefb5e2fde24fb1406fe88855f852",
+        "a722982ec60baa9a93870ef48cf54a23f06d6b5fdadb7141ae98d8e8e45ecb7d"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P07": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "ostrich-tricycle-01",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U16",
+      "repeat_of": null,
+      "sha256": [
+        "1df5525dc559506afb70b6a37e1a460b1113aff5c38e908e78f594a8319c6ea1",
+        "c61bbe2da7c3a76f803b7ed521776e0f9eceaccd6b619cbd57c22904ccf795c8"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P08": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "ostrich-bicycle-03",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "C",
+        "D"
+      ],
+      "sample": "U14",
+      "repeat_of": "U14",
+      "sha256": [
+        "e5a85e34860869b56146d47cf0dd42f89ff47f00c34972ff0c333c069a3aaefe",
+        "b24c57e5bf8c2defce566b15e1ab16db445a341975dd40d7b993e6d58f41946e"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P09": {
+      "model": "qwen4-max",
+      "case": "toucan-tricycle-01",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U04",
+      "repeat_of": "U04",
+      "sha256": [
+        "715f2e1250d60a3787c77495b1825042fcdbd0bccff2d779f2e5f6d752e36343",
+        "6e0f4e187b7fc088a47400b41e9d5ece3a57bb3abed2962e2a5d3e587215bf79"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P10": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "toucan-bicycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "D",
+        "A"
+      ],
+      "sample": "U09",
+      "repeat_of": null,
+      "sha256": [
+        "c487bcfa7463c667ad3eb2b5797ae0cd4cada4919df5da9aea9fe7f183d045fb",
+        "90f87ed16acd9250bcd7098fde8a754b7471b0cf63afa0aabd44702fc29fd7fc"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P11": {
+      "model": "qwen3.8-flash",
+      "case": "ostrich-tricycle-01",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U23",
+      "repeat_of": null,
+      "sha256": [
+        "e97bfbb818842ee4ff61dc1b0dc0477853651f13ba5744b5b7f9a9f36fe71cfc",
+        "b320392c07c47c80bfb1f3775603c7bc467c40312ad31c6ff92c90485c4a7870"
+      ],
+      "camera": "partner camera",
+      "sources": [
+        "native browser replay",
+        "phase replay"
+      ]
+    },
+    "P12": {
+      "model": "qwen3.8-flash",
+      "case": "toucan-tricycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U19",
+      "repeat_of": null,
+      "sha256": [
+        "94de0f691cf796390564ad5dda9e1856a1f8a5ab57073088eb2e2c3038bec0ee",
+        "292637fec96ff70dc3e8a405106dbb2d31e7ec0291f617c22d7a071176b9be2c"
+      ],
+      "camera": "native capture",
+      "sources": [
+        "native browser replay",
+        "native browser replay"
+      ]
+    },
+    "P13": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "ostrich-tricycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "D",
+        "A"
+      ],
+      "sample": "U15",
+      "repeat_of": null,
+      "sha256": [
+        "65c7c79773903430c259690488cbc662bcc13c6be7c7a4670d37e4135259210e",
+        "185254c0f3dd95d0a28c44040195968336700ab7dd0a4d1d66a70b906bbf49f9"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P14": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "toucan-bicycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "C",
+        "D"
+      ],
+      "sample": "U10",
+      "repeat_of": null,
+      "sha256": [
+        "bbdfadea6b59cdc4d28be3bc9c1093e3cf18a60c6a43a50d5acf942e994bf9dc",
+        "4890b410d147a89abfb54d12b3cc5fb4d5f05575d29cde215ae2588e6b79b387"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P15": {
+      "model": "qwen3.8-flash",
+      "case": "ostrich-tricycle-01",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "C",
+        "D"
+      ],
+      "sample": "U24",
+      "repeat_of": null,
+      "sha256": [
+        "2e4fc10284358cf4004bb0de8010c413b3011b4a70b243ecc20efa6c9cccad9c",
+        "b320392c07c47c80bfb1f3775603c7bc467c40312ad31c6ff92c90485c4a7870"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P16": {
+      "model": "qwen4-max",
+      "case": "ostrich-bicycle-01",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U05",
+      "repeat_of": null,
+      "sha256": [
+        "6d99e3c44e90499e9a7f253751be6f69ad123a1cee71c1b2cb528a30e82a42db",
+        "b11fcf68daba01fa3d3a5bfbe7f806d3b13fc28ba705e25678054a943a28e153"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P17": {
+      "model": "qwen3.8-flash",
+      "case": "ostrich-bicycle-01",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U22",
+      "repeat_of": null,
+      "sha256": [
+        "2bef9cb84b2c3135b652e11a69c5ea61abd3d9003d3e403bd1f2be42afb4fa5a",
+        "99e32c335151a735800b58de581c676ac9d9ff6822234e8e92fd84333f3cda81"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P18": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "toucan-tricycle-01",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U11",
+      "repeat_of": null,
+      "sha256": [
+        "4605019584bcd07a70d4f4fc9ad22c1900ad53f658ac3685ce8729e4761e119a",
+        "e9961fbcaff4e48214ddc862495aa307f40ee70fa20c0f66b34b64f6f7a4e812"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P19": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "ostrich-bicycle-03",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U14",
+      "repeat_of": null,
+      "sha256": [
+        "b24c57e5bf8c2defce566b15e1ab16db445a341975dd40d7b993e6d58f41946e",
+        "e5a85e34860869b56146d47cf0dd42f89ff47f00c34972ff0c333c069a3aaefe"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P20": {
+      "model": "qwen3.8-flash",
+      "case": "toucan-bicycle-01",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U18",
+      "repeat_of": null,
+      "sha256": [
+        "1a7c15403b2c0f5dfd56bee491af2a117ba4beb3f2210276b798b32c52f02bc5",
+        "d90df65fca47252257330c9aa4e54c9725870c43a36f3cf857ecec25fb0415cb"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P21": {
+      "model": "qwen4-max",
+      "case": "ostrich-tricycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U07",
+      "repeat_of": null,
+      "sha256": [
+        "67794799492d26bc7d83c566bc6dc1b1ecade2f7f09ec8950deca667ef7861e6",
+        "6779665af41575f0be754fc3f18d31f742985b33bd9b7ba09bb72dd59f5afb9e"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P22": {
+      "model": "qwen4-max",
+      "case": "toucan-tricycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U03",
+      "repeat_of": null,
+      "sha256": [
+        "eebb25a8cea50896e2b8ff2b5bc8192b0fd3e68dd71c3e7e8b60f4b10f3f016b",
+        "7299612bcafd58c504441f0f6444caa2412eef4e465c466ec5a696392b24f3d5"
+      ],
+      "camera": "partner camera",
+      "sources": [
+        "native browser replay",
+        "phase replay"
+      ]
+    },
+    "P23": {
+      "model": "qwen3.8-flash",
+      "case": "toucan-bicycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "D",
+        "A"
+      ],
+      "sample": "U17",
+      "repeat_of": null,
+      "sha256": [
+        "8fac42d31d9702bd98fe0766c2e37da10f284e3a75afe9ad60b43f4935f824ba",
+        "7af1382f1b38951561ce0bb9a2d584078b923d81531de57c2c5c072b6ce23ce4"
+      ],
+      "camera": "partner camera",
+      "sources": [
+        "phase replay",
+        "native browser replay"
+      ]
+    },
+    "P24": {
+      "model": "qwen4-max",
+      "case": "toucan-bicycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U02",
+      "repeat_of": null,
+      "sha256": [
+        "97101ac1413a4a11682a8f8d9290b95439e2d2f4570fb93493926348b3bdaf0c",
+        "06187e436a32936b9d773a4142bc50208a4f198f79e1f177dfffee4e1104157c"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P25": {
+      "model": "qwen4-max",
+      "case": "toucan-bicycle-03",
+      "target": "AD",
+      "contrast": "AD",
+      "left_right": [
+        "A",
+        "D"
+      ],
+      "sample": "U01",
+      "repeat_of": null,
+      "sha256": [
+        "53bf6561c9af4a4863f8cdb88fc084059b207f62221d8849dbad169594fe7bef",
+        "03e152b291398fb3ba5ab61790f7d12e4e26a5f729956c9315a264e48abe03c7"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P26": {
+      "model": "qwen4-max",
+      "case": "ostrich-tricycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U08",
+      "repeat_of": null,
+      "sha256": [
+        "5d7615f571aeca4585e493c1c8a39120ee9718b4d56f01d5407fe35fd8e95193",
+        "b9653a7c0d7deff2d3bfa59eccd3f372d11fefe66266a78b586dc4bcdab64e4f"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    },
+    "P27": {
+      "model": "deepseek-v4.1-flash-1017",
+      "case": "toucan-tricycle-02",
+      "target": "CD",
+      "contrast": "CD",
+      "left_right": [
+        "D",
+        "C"
+      ],
+      "sample": "U12",
+      "repeat_of": null,
+      "sha256": [
+        "fb770c8e965a096961f15f0b2fec04d968de8d498900c7698f8e2cc10dea8d33",
+        "6e76a2f1d2c1abe59fab4f130af455e7d8795332569414c204824e52789dcba2"
+      ],
+      "camera": "vehicle-relative",
+      "sources": [
+        "phase replay",
+        "phase replay"
+      ]
+    }
+  }
+}

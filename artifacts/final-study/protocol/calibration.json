@@ -1,0 +1,86 @@
+{
+  "fixtures": [
+    {
+      "split": "development",
+      "path": "web/draft-2-motion/scene.html",
+      "sha256": "25876d54bd07cfeca23e2a381bff5d442e79240e7e855bc04086dfee5fb0ae7e",
+      "bird": "pelican",
+      "vehicle": "bicycle"
+    },
+    {
+      "split": "first",
+      "path": "web/draft-6-motion/scene.html",
+      "sha256": "a9bee6fd98d0b1ec72a5ac9f8da9631a36129d4993ffa0cd9c1f6ec1f35a1312",
+      "bird": "pelican",
+      "vehicle": "bicycle"
+    },
+    {
+      "split": "first",
+      "path": "artifacts/road-study/joint-validation-01/deepseek-v4.1-flash-1017/puffin-bicycle-01/agent/road-direction/round-1/scene.html",
+      "sha256": "8d41c7cdcd478b0440c483d1626c98d17c8b5bf497bcebe1db29e83c647ed12f",
+      "bird": "puffin",
+      "vehicle": "bicycle"
+    },
+    {
+      "split": "first",
+      "path": "artifacts/road-study/qwen-temporal-pilot-02/qwen3.8-flash/heron-tricycle-01/agent/road-direction/round-1/scene.html",
+      "sha256": "6123692dcffaaf31fa8b3a0f0036497a307671a5744d29872ec9c8c0a7ec7170",
+      "bird": "heron",
+      "vehicle": "tricycle"
+    },
+    {
+      "split": "reserve",
+      "path": "artifacts/road-study/joint-validation-01/deepseek-v4.1-flash-1017/heron-bicycle-02/agent/road-direction/round-2/scene.html",
+      "sha256": "c612a2c1a482f5bbe2c9f0d98c8dda1915d7e590193bb7007e5ce12c3fc58cde",
+      "bird": "heron",
+      "vehicle": "bicycle"
+    },
+    {
+      "split": "reserve",
+      "path": "artifacts/road-study/joint-validation-01/deepseek-v4.1-flash-1017/puffin-bicycle-03/agent/pose-recovery/round-6/scene.html",
+      "sha256": "0a840d78b4986f6b37e0ff444e113a099ba5aeeb3fe0af696d83aabe39aebca9",
+      "bird": "puffin",
+      "vehicle": "bicycle"
+    },
+    {
+      "split": "reserve",
+      "path": "artifacts/road-study/qwen-temporal-pilot-02/qwen3.8-flash/puffin-tricycle-01/agent/road-direction/round-1/scene.html",
+      "sha256": "3b4e64e73648377b6751ffec8b5225a80ab07f60d5e77cf7cf444de985eaa519",
+      "bird": "puffin",
+      "vehicle": "tricycle"
+    }
+  ],
+  "faults": [
+    "feet_raised",
+    "crank_stopped",
+    "crank_reversed",
+    "wheel_reversed",
+    "joint_gap",
+    "penetration",
+    "wrong_bird",
+    "wrong_vehicle"
+  ],
+  "primary": [
+    "feet_raised",
+    "crank_stopped",
+    "crank_reversed",
+    "wheel_reversed"
+  ],
+  "first_prompt": [
+    "Inspect these chronological views of one anonymous procedural 3D ride. Each sheet has a fixed camera. Read the times in row order. Identify the bird species and vehicle you actually see; use unknown when unresolved.\nCheck crank_forward (at the top of the stroke the pedal moves toward the front axle), wheel_forward (the visible rim turns consistently with forward rolling), left_contact and right_contact (each real foot stays supported by its pedal), connected (hips, knees, ankles and vehicle parts stay connected), clear_of_penetration (no persistent solid interpenetration). Use yes, no, or unobservable. Occlusion alone cannot establish a gap or clipping. Use actual moving landmarks, including the opposing camera. Return JSON only: bird, vehicle, and checks, keyed by the six names. Each check has verdict, view (hero/detail/reverse), times (two distinct printed times in seconds), and a short observation. Use empty evidence if unobservable.",
+    "Compare two anonymous synchronized rides for the specified bird and vehicle. Each sheet shows both A and B at each printed time, in chronological row order. Choose the candidate that more convincingly fulfils the task and pedals naturally. Compare the crank over time, actual wheel roll, alternating legs, foot support, structural continuity and the identities. Ignore scenery, lighting polish and placement on the page. Either side can be correct. Use tie for equally plausible or equally flawed rides; use unobservable when the available views cannot support a comparison. Return only JSON with winner (A, B, tie, unobservable), criterion, view (hero/detail/reverse), times (two distinct printed times in seconds), and observation."
+  ],
+  "one_predeclared_refinement": "Trace one asymmetric landmark across two neighboring timestamps in one view, e.g. a spoke reflector, crank tip or shoe. Identify the direction of the front axle before judging rotation. For ground contact compare the bottom of the wheel with the moving ground. Use the reverse view to test a suspected sole gap. In a side-by-side comparison inspect each candidate separately before choosing. Do not interpret a static foot over a static pedal as successful pedaling.",
+  "views": [
+    "hero",
+    "detail",
+    "reverse"
+  ],
+  "criterion": "At least 11/12 core pairs correct in both orders, at least 2/3 per core fault, and 5/6 correct targeted single-clip diagnoses per core fault. Other observations are descriptive.",
+  "figure_grid": "12 successive samples at 4/24 s spacing spanning one 2 s period. Calibration phases start at 0 and 2/24 s. Formal uses only 0.",
+  "sources": {
+    "tests/fixtures/final_riding_controls.py": "0973e916e8b79e5de79b9669530435a372ed75f84fe1c3214d15aecf4f5351ad",
+    "scripts/final_phase_views.mjs": "668938dc86b8b3e51cd1a1d1ddde94265a9b86ed56ce1ce1ab55f183bf4f31bb"
+  },
+  "historical_exposure": "Flamingo on a bicycle appeared in an earlier benchmark; all final first draws are fresh. Neither final species has a sculpting preset."
+}

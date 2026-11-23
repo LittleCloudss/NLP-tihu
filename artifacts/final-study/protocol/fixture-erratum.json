@@ -1,0 +1,12 @@
+{
+  "before": {
+    "tests/fixtures/final_riding_controls.py": "0973e916e8b79e5de79b9669530435a372ed75f84fe1c3214d15aecf4f5351ad",
+    "scripts/final_phase_views.mjs": "668938dc86b8b3e51cd1a1d1ddde94265a9b86ed56ce1ce1ab55f183bf4f31bb"
+  },
+  "after": {
+    "tests/fixtures/final_riding_controls.py": "d5dae4eade1151cb77c69d217b993809e0bb64e0b5c488297b245d31346d9a99",
+    "scripts/final_phase_views.mjs": "668938dc86b8b3e51cd1a1d1ddde94265a9b86ed56ce1ce1ab55f183bf4f31bb"
+  },
+  "reason": "Before any locked judge dispatch: fix a JavaScript shadowed variable that prevented the wrong-animal control from opening on draft 6. Verify elevated feet in wheelbase units across scene scales. The stimuli, cameras, prompts, target proportions, and gate remain prescribed.",
+  "locked_dispatches_at_correction": 0
+}

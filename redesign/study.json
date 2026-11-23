@@ -1,0 +1,8 @@
+{
+  "pilot": {"model": "deepseek-v4.1-flash-1017", "tasks": [["pelican","bicycle"]], "repeats": 6},
+  "transfer": {"models":["deepseek-v4.1-flash-1017","qwen3.8-flash","qwen4-max"],"tasks":[["heron","bicycle"],["puffin","bicycle"],["heron","tricycle"],["puffin","tricycle"]],"repeats":3},
+  "calls_per_trajectory": 3, "max_output_tokens": 12000, "temperature": 0.7,
+  "selection_judge":"qwen3.8-flash", "blind_judge":"qwen4-max",
+  "pass_minimum": 3, "pilot_required_passes":5, "pilot_required_conversions":2,
+  "design":"Six fresh starts, no replacement. A is the first generation. B and C start from A with two revision opportunities. D draws two fresh independent candidates plus A. Use the same selector and score every branch candidate. Freeze exact sources before exporting transfer results."
+}

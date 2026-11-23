@@ -1,0 +1,386 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Procedural cycling study</title><style>*{box-sizing:border-box}body{margin:0;overflow:hidden}canvas{display:block;touch-action:none}</style>
+<script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script></head><body><script type="module">
+import * as T from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const design = {"colors": {"sky": "#0b1220", "land": "#1b2436", "road": "#2a3648", "stripe": "#7dd3fc", "foliage": "#2f7d8c", "accent": "#ff7a1a"}, "setting": "park", "mount": {"front": [0.78, 0.42, 0], "rear": [-0.78, 0.42, 0]}};
+const scene = new T.Scene();
+const renderer = new T.WebGLRenderer({antialias:true});
+document.body.append(renderer.domElement);
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
+renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
+const camera=new T.PerspectiveCamera(36,1,.01,2000);
+const controls=new OrbitControls(camera,renderer.domElement);
+const rear=new T.Vector3().fromArray(design.mount.rear),front=new T.Vector3().fromArray(design.mount.front);
+const middle=rear.clone().lerp(front,.5),axis=front.clone().sub(rear); axis.y=0;
+const wheelbase=axis.length();axis.normalize();
+const up=new T.Vector3(0,1,0),side=axis.clone().cross(up);
+const ground=middle.clone().addScaledVector(up,-.321*wheelbase);
+const environment=new T.Group();scene.add(environment);
+environment.quaternion.setFromRotationMatrix(new T.Matrix4().makeBasis(axis,up,side));
+environment.scale.setScalar(wheelbase);environment.position.copy(ground);
+function shape(geometry,color,x,y,z,parent=environment){
+ const mesh=new T.Mesh(geometry,new T.MeshStandardMaterial({color,roughness:.82}));
+ mesh.position.set(x,y,z);mesh.receiveShadow=true;parent.add(mesh);return mesh;
+}
+const colors=design.colors;
+scene.background=new T.Color(colors.sky);
+scene.fog=new T.FogExp2(colors.sky,.026/wheelbase);
+scene.add(new T.HemisphereLight(0xfffcf4,0xc0c7d3,1.75));
+const sun=new T.DirectionalLight(0xffefd3,2.4);sun.position.copy(middle).addScaledVector(axis,4*wheelbase).addScaledVector(side,3*wheelbase).y+=7*wheelbase;
+sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);
+Object.assign(sun.shadow.camera,{left:-2.2*wheelbase,right:2.2*wheelbase,top:2.2*wheelbase,bottom:-2.2*wheelbase,near:.05*wheelbase,far:15*wheelbase});
+sun.shadow.normalBias=.0015*wheelbase;
+sun.target.position.copy(middle);scene.add(sun,sun.target);
+shape(new T.BoxGeometry(150,.09,48),colors.land,0,-.07,0);
+shape(new T.BoxGeometry(100,.045,2.4),colors.road,0,-.0225,0);
+for(const z of [-1.07,1.07])for(let x=-44;x<45;x+=2)shape(new T.BoxGeometry(.88,.004,.030),colors.stripe,x,.003,z);
+const ridge=new T.Group();environment.add(ridge);
+for(let i=0;i<23;i++){
+ const x=(i-11)*2.0, h=1.4+.8*Math.sin(i*1.7), z=-7-.6*Math.cos(i);
+ const hill=shape(new T.IcosahedronGeometry(1,1),colors.foliage,x,-.2,z,ridge);
+ hill.scale.set(2.7,h,1.6);
+}
+for(let i=0;i<30;i++){
+ const x=(i-15)*1.83,z=-2.9-(i%4)*.55;
+ if(design.setting==='town'){
+  const height=.72+.12*(i%4);
+  shape(new T.BoxGeometry(.82,height,.81),i%2?colors.accent:colors.land,x,height/2,z);
+  const roof=shape(new T.ConeGeometry(.77,.47,4),colors.foliage,x,height+.23,z);roof.rotation.y=Math.PI/4;
+  for(const dx of [-.21,.21])shape(new T.BoxGeometry(.16,.20,.02),colors.sky,x+dx,height*.62,z+.41);
+ }else if(design.setting==='coast' && i%3===0){
+  const rock=shape(new T.DodecahedronGeometry(1),colors.accent,x,.07,z);rock.scale.set(.45,.26,.38);
+ }else{
+  const h=.64+.18*(i%3);
+  shape(new T.CylinderGeometry(.028,.045,h,8),colors.accent,x,h/2,z);
+  const leaves=shape(new T.IcosahedronGeometry(.48,1),colors.foliage,x,h+.15,z);
+  leaves.scale.set(.8,1.3,.82);
+ }
+}
+let time=0,paused=false,last=null;
+function render(){renderer.render(scene,camera)}
+function view(name){
+ const eye=name==='front'?[2.65,.72,.35]:name==='side'?[.04,.62,2.48]:[1.00,.83,2.45];
+ controls.target.copy(middle).addScaledVector(up,.30*wheelbase);
+ camera.position.copy(middle).addScaledVector(axis,eye[0]*wheelbase).addScaledVector(up,eye[1]*wheelbase).addScaledVector(side,eye[2]*wheelbase);
+ controls.update();render();
+}
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();render()}
+window.__pelicanLab={ready:true,setPaused(p){paused=Boolean(p);last=null;render()},setView:view,setTime(t){time=t;render()}};
+controls.addEventListener('change',render);addEventListener('resize',resize);resize();view('hero');
+renderer.setAnimationLoop(ms=>{if(!paused&&last!==null)time+=Math.min(.1,(ms-last)/1000);last=ms;render()});
+
+;{
+// Model-authored cross-sections, fitted to a preserved bicycle and its moving limbs.
+function attachLoftRider(T,P,spec,wb,frameQ,scene){
+ const original=P.torso,body=P.rider;
+ const center=original.localToWorld((original.geometry.computeBoundingBox(),original.geometry.boundingBox.getCenter(new T.Vector3())));
+ const keep=new Set();
+ for(const s of ['l','r'])for(const obj of Object.values(P[s]))if(obj?.isObject3D)keep.add(obj);
+ scene.traverseVisible(m=>{if(/^(foot|pedal|crank|thigh|shin|hip|knee|ankle)_[lr]$/i.test(m.userData.auditPart||''))keep.add(m);});
+ const protectedMesh=o=>{for(let p=o;p;p=p.parent)if(keep.has(p))return true;return false;};
+ body.traverse(o=>{if(o.isMesh&&!protectedMesh(o)){
+   if(o.userData.auditPart?.toLowerCase()==='torso')delete o.userData.auditPart;
+   // Children can include live source legs. Hide only the retired surface.
+   const hide=m=>{const c=m.clone();c.visible=false;return c;};
+   o.material=Array.isArray(o.material)?o.material.map(hide):hide(o.material);
+ }});
+ const group=new T.Group();body.add(group);
+ group.position.copy(body.worldToLocal(center));group.quaternion.copy(body.getWorldQuaternion(new T.Quaternion()).invert().multiply(frameQ));
+ const scale=body.getWorldScale(new T.Vector3());group.scale.set(wb/scale.x,wb/scale.y,wb/scale.z);
+ function surface(rings){
+  const verts=[],idx=[],N=32,side=new T.Vector3(0,0,1);
+  for(let i=0;i<rings.length;i++){
+   const p=rings[i],a=rings[Math.max(i-1,0)],b=rings[Math.min(i+1,rings.length-1)];
+   const tangent=new T.Vector3(b[0]-a[0],b[1]-a[1],b[2]-a[2]).normalize();
+   const z=side.clone().addScaledVector(tangent,-side.dot(tangent));
+   if(z.lengthSq()<.001)z.set(1,0,0).addScaledVector(tangent,-tangent.x);z.normalize();
+   const y=z.clone().cross(tangent).normalize();
+   for(let j=0;j<N;j++){const angle=2*Math.PI*j/N;
+    const v=new T.Vector3(p[0],p[1],p[2]).addScaledVector(y,p[3]*Math.cos(angle)).addScaledVector(z,p[4]*Math.sin(angle));
+    verts.push(v.x,v.y,v.z);
+    if(i){const a=(i-1)*N+j,b=(i-1)*N+(j+1)%N,c=i*N+j,d=i*N+(j+1)%N;idx.push(a,b,c,b,d,c);}
+   }
+  }
+  for(let j=1;j<N-1;j++){idx.push(0,j+1,j);const k=(rings.length-1)*N;idx.push(k,k+j,k+j+1);}
+  const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(verts,3));geo.setIndex(idx);geo.computeVertexNormals();return geo;
+ }
+ for(const p of spec.parts){
+  const g=p.rings?surface(p.rings):new T.SphereGeometry(1,30,20);
+  const o=new T.Mesh(g,new T.MeshStandardMaterial({color:p.color,side:T.DoubleSide,roughness:.67}));
+  if(!p.rings){o.position.fromArray(p.center);o.scale.fromArray(p.radii);}
+  o.name=p.role;o.castShadow=true;o.receiveShadow=true;group.add(o);
+  if(p.role==='torso'){P.torso=o;o.userData.auditPart='torso';}
+  if(p.role==='bill')P.bill=o;
+ }
+}
+
+// Reusable touring-pedal hardware. It is fixed to the platform, including during tilt.
+function makeToeCage(T,wb,material,sideWall) {
+ const cage=new T.Group();
+ const rail=(points,rad,mat)=>{
+  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p).multiplyScalar(wb)));
+  const rail=new T.Mesh(new T.TubeGeometry(curve,20,rad*wb,8,false),mat);rail.castShadow=true;cage.add(rail);
+ };
+ for(const z of [-1,1]){
+  rail([[-.068,-.016,.053*z],[.01,-.019,.058*z],[.082,-.014,.054*z],[.088,.007,.048*z],[.066,.024,.043*z]],.0045,material);
+ }
+ rail([[.064,-.004,-.052],[.066,.027,-.044],[.062,.046,0],[.066,.027,.044],[.064,-.004,.052]],.0065,sideWall);
+ for(let i=-2;i<=2;i++)rail([[i*.027,-.015,-.052],[i*.027,-.015,.052]],.004,material);
+ return cage;
+}
+function fitHaunch(T) {
+ const profile=[[.25,-.53],[.58,-.44],[.83,-.23],[.94,.03],[.88,.24],[.65,.42],[.25,.53]].map(([r,y])=>new T.Vector2(r,y));
+ return new T.LatheGeometry(profile,24);
+}
+
+function fitSteeringWings(T,parts,scene,geometry) {
+ const {wb,f,side,up,v,center,offset,segment,rounded,mat,ball,mesh}=geometry;
+ const torso=parts.torso,tailColor=mat(0x39413f),tipColor=mat(0x59605b),bone=torso.material;
+ const grip=parts.handle;
+ if(!grip)return ()=>{};
+ const midpoint=grip.isMesh?center(grip):grip.getWorldPosition(v());
+ const from=center(torso),to=midpoint.clone().sub(from);
+ if(to.dot(f)<wb*.04||to.length()>wb*1.25)return ()=>{};
+ const sides=[1,-1].map((sign,i)=>{
+  const shoulder=offset(from,.044,.035,sign*.091);
+  const p=torso.worldToLocal(shoulder.clone());
+  const hand=offset(midpoint,0,.013,sign*.15),gripLocal=grip.worldToLocal(hand);
+  const feathers=[bone,tipColor,tailColor].map(m=>mesh(fitHaunch(T),m));
+  return {sign,p,gripLocal,upper:mesh(fitHaunch(T),bone),fore:mesh(fitHaunch(T),bone),feathers,
+    knuckle:ball(bone)};
+ });
+ return ()=>{
+  for(const s of sides){
+   const a=torso.localToWorld(s.p.clone()),c=grip.localToWorld(s.gripLocal.clone());
+   const b=a.clone().lerp(c,.53).addScaledVector(side,s.sign*.033*wb).addScaledVector(up,-.026*wb);
+   segment(s.upper,a,b,.099,.076);segment(s.fore,b,c,.068,.054);rounded(s.knuckle,b,.067,.055,.059);
+   for(const [i,feather] of s.feathers.entries()){
+    const start=a.clone().lerp(b,.45+i*.13).addScaledVector(up,-i*.009*wb);
+    const tip=b.clone().lerp(c,.83-i*.13).addScaledVector(up,-(.02+i*.016)*wb);
+    segment(feather,start,tip,.033-i*.003,.032);
+   }
+  }
+ };
+}
+
+function makeContactAssembly(T,wb,kit) {
+ const material=(color,metalness=0)=>new T.MeshStandardMaterial({color,roughness:.57,metalness});
+ const root=new T.Group(), upper=material(kit.upper),welt=material(kit.edge),hardware=material(0x72828b,.44);
+ const u=wb;
+ function ellipsoid(x,y,z,rx,ry,rz,mat){
+  const m=new T.Mesh(new T.SphereGeometry(1,28,16),mat);m.scale.set(rx*u,ry*u,rz*u);m.position.set(x*u,y*u,z*u);root.add(m);m.castShadow=true;return m;
+ }
+ function tube(points,r,mat){
+  const spline=new T.CatmullRomCurve3(points.map(a=>new T.Vector3(...a).multiplyScalar(u)));
+  const m=new T.Mesh(new T.TubeGeometry(spline,18,r*u,9,false),mat);root.add(m);m.castShadow=true;
+ }
+ // Heel socket and instep overlap the driven ankle. The tagged webbed sole
+ // remains the bottom contact surface, visible around the shoe upper.
+ ellipsoid(-.043,.036,0,.042,.038,.043,upper);
+ ellipsoid(.009,.029,0,.077,.029,.046,upper);
+ for(const z of [-1,1]){
+  tube([[-.084,.021,z*.024],[-.05,.018,z*.042],[.025,.018,z*.047],[.075,.016,z*.031]],.0037,welt);
+  tube([[-.07,.035,z*.03],[-.051,.057,z*.033],[-.039,.062,z*.026]],.004,welt);
+ }
+ for(const x of [-.005,.024]){
+  tube([[x+.003,.030,-.041],[x,.049,-.031],[x,.057,0],[x,.049,.031],[x-.005,.029,.042]],.004,welt);
+ }
+ for(const z of [-1,1])ellipsoid(.027,.028,z*.045,.012,.006,.004,hardware);
+ return root;
+}
+function limbProfile(T,upper){
+ const shape=upper?[[.78,-.50],[.90,-.44],[.94,-.31],[1,-.09],[.88,.19],[.74,.39],[.74,.5]]:
+ [[.63,-.50],[.63,-.39],[.79,-.14],[1,.14],[.89,.31],[.76,.46],[.77,.50]];
+ const profile=new T.LatheGeometry(shape.map(([x,y])=>new T.Vector2(x,y)),24);
+ profile.computeBoundingBox();
+ // The source's original animation can still call geometry.parameters.height before the final draw.
+ profile.parameters.height=profile.boundingBox.max.y-profile.boundingBox.min.y;
+ return profile;
+}
+
+// Restore one moving assembly in the original world. Coordinates use wheelbases.
+function rebuildAssembly(T,scene,renderer,design,clock,roots,mount=null){
+ const V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z), up=V(0,1), tags={};
+ scene.updateMatrixWorld(true);scene.traverseVisible(o=>{const k=o.userData.auditPart;if(k)(tags[k.toLowerCase()]??=[]).push(o);});
+ const front=tags.front_wheel?.[0],rear=tags.rear_wheel?.[0];
+ if(!mount&&(!front||!rear))throw Error('Cannot recover wheelbase without original axle tags');
+ const at=o=>o.getWorldPosition(V());
+ const aft=mount?V().fromArray(mount.rear):at(rear),fore=mount?V().fromArray(mount.front):at(front);
+ const forward=fore.clone().sub(aft);forward.y=0;
+ const wb=forward.length();if(!(wb>1e-4))throw Error('Original axle separation is invalid');forward.normalize();
+ const contains=(o,a)=>{for(;a;a=a.parent)if(a===o)return true;return false;};
+ const moving=Object.entries(tags).filter(([k])=>/^(front_wheel|rear_wheel|torso|thigh_[lr]|shin_[lr]|pedal_[lr]|foot_[lr])$/.test(k)).flatMap(e=>e[1]);
+ // Restoring background geometry can shift scene child indices. Rebind the same
+ // visible physical assembly by ownership before applying the existing checks.
+ if(roots.some(o=>!o||!moving.some(m=>contains(o,m)))||moving.some(m=>!roots.some(o=>contains(o,m)))){
+  const top=o=>{while(o.parent&&o.parent!==scene)o=o.parent;return o;};
+  roots=[...new Set(moving.map(top))];
+ }
+ if(!mount&&(!roots.length||roots.some(o=>!o||o===scene||!moving.some(m=>contains(o,m)))||moving.some(m=>!roots.some(o=>contains(o,m)))))throw Error('Choose the existing rider and vehicle roots covering the moving parts');
+ for(const o of roots){let other=false;o.traverse(child=>{
+  if(child.isLight||child.isCamera)other=true;
+  if(child.isMesh){child.geometry.computeBoundingBox();const size=child.geometry.boundingBox.getSize(V()).multiply(child.getWorldScale(V()));
+   if(Math.max(Math.abs(size.x),Math.abs(size.z))>4*wb)other=true;}
+ });if(other)throw Error('A subject root contains scene infrastructure');}
+ // Measure the road at the two projected axle centers, excluding both retired assemblies.
+ const ground=[];scene.traverseVisible(o=>{if(o.isMesh&&!roots.some(root=>contains(root,o)))ground.push(o);});
+ const clearances=[aft,fore].map(p=>{
+  const hits=new T.Raycaster(p,V(0,-1),0,.65*wb).intersectObjects(ground,false);
+  const surface=hits.find(h=>h.face&&Math.abs(h.face.normal.clone().transformDirection(h.object.matrixWorld).y)>.85);
+  return surface?.distance;
+ }).filter(Number.isFinite);
+ const radius=clearances.length?Math.max(.10,Math.min(.54,Math.min(...clearances)/wb-.021)):design.radius;
+ const basis=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(forward,up,forward.clone().cross(up)));
+ const group=parent=>{const g=new T.Group();parent.add(g);return g;};const vehicle=group(scene);vehicle.scale.setScalar(wb);vehicle.quaternion.copy(basis);
+ const middle=fore.clone().lerp(aft,.5);vehicle.position.copy(middle);
+ const color=(hex,metalness=0)=>new T.MeshStandardMaterial({color:hex,roughness:.52,metalness});
+ const enamel=color(design.paint,.32),steel=color('#cbd5ce',.45),dark=color('#23302e'),tire=color('#303633'),seatMat=color(design.trim),skin=color(design.skin),shank=color(design.shank);
+ const mesh=(parent,geom,mat,p=V())=>{const m=new T.Mesh(geom,mat);m.position.copy(p);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;};
+ const ell=(p,c,r,mat)=>{const o=mesh(p,new T.SphereGeometry(1,24,16),mat,c);o.scale.copy(r);return o;};
+ const tag=(o,name)=>{o.userData.auditPart=name;return o;};
+ const span=(o,a,b,rx,rz=rx)=>{const dir=b.clone().sub(a);o.position.copy(a).lerp(b,.5);o.scale.set(rx,dir.length(),rz);o.quaternion.setFromUnitVectors(up,dir.normalize());};
+ const tube=(p,a,b,r,mat)=>{const o=mesh(p,new T.CylinderGeometry(1,1,1,16),mat);span(o,a,b,r);return o;};
+ const hoop=(p,c,r,thick,mat)=>mesh(p,new T.TorusGeometry(r,thick,12,80),mat,c);
+ const trike=design.vehicle==='tricycle', rearSpread=trike?.22:0;
+ const wheels=[];
+ function wheel(x,z,id){const w=group(vehicle);w.position.set(x,0,z);if(id)tag(w,id);wheels.push(w);
+  hoop(w,V(),radius,.021,tire);hoop(w,V(),radius-.024,.009,steel);tube(w,V(0,0,-.045),V(0,0,.045),.024,steel);
+  for(let i=0;i<24;i++){const a=i*Math.PI/12;tube(w,V(0,0,i%2?.028:-.028),V((radius-.029)*Math.cos(a),(radius-.029)*Math.sin(a),0),.0028,steel);}
+  if(id==='front_wheel')tag(mesh(w,new T.BoxGeometry(.044,.013,.014),color('#ffad29'),V(radius*.77,0,.007)),'rim_marker');
+ }
+ wheel(.5,0,'front_wheel');wheel(-.5,rearSpread,'rear_wheel');if(trike){
+  wheel(-.5,-rearSpread,'rear_wheel_other');
+  tube(vehicle,V(-.5,0,-rearSpread),V(-.5,0,rearSpread),.019,steel);
+  const rackHeight=radius*.78;
+  for(const z of [-.15,.15]){
+   tube(vehicle,V(-.68,rackHeight,z),V(-.36,rackHeight,z),.012,enamel);
+   tube(vehicle,V(-.62,rackHeight,z),V(-.5,0,z),.009,steel);
+  }
+  for(let i=0;i<6;i++)tube(vehicle,V(-.67+i*.055,rackHeight,-.15),V(-.67+i*.055,rackHeight,.15),.009,steel);
+  for(const s of [-1,1]){
+   const points=[];
+   for(let j=0;j<=22;j++){const a=Math.PI*(.05+.9*j/22);points.push(V(-.5+(radius+.040)*Math.cos(a),(radius+.040)*Math.sin(a),s*rearSpread));}
+   mesh(vehicle,new T.TubeGeometry(new T.CatmullRomCurve3(points),28,.018,10,false),enamel);
+  }
+ }
+ const sport=design.posture==='sport';
+ const pivot=V(-.045,-.025),seat=V(sport?-.13:-.17,design.saddleHeight),head=V(.322,.28),fork=V(.382,.155),grip=V(sport?.34:.295,sport?.35:.41);
+ // A step-through frame gives the knees clearance on either side of the down tube.
+ const step=V(-.106,.075),bend=V(.055,.085);
+ const rods=[[seat,pivot],[pivot,fork],[head,fork],[step,bend],[bend,head]];for(const [a,b] of rods)tube(vehicle,a,b,.015,enamel);
+ for(const z of [-1,1]){const axle=V(-.5,0,(rearSpread||.047)*z);tube(vehicle,seat,axle,.010,enamel);tube(vehicle,pivot,axle,.012,enamel);tube(vehicle,fork,V(.5,0,.048*z),.014,enamel);}
+ tube(vehicle,seat,seat.clone().add(V(-.018,.058)),.012,steel);const saddle=seat.clone().add(V(-.018,.072));ell(vehicle,saddle,V(.087,.023,.055),seatMat);
+ tube(vehicle,head,V(.36,.39),.013,steel);tube(vehicle,V(.36,.39),grip,.012,steel);tube(vehicle,grip.clone().add(V(0,0,-.17)),grip.clone().add(V(0,0,.17)),.009,steel);
+ for(const s of [-1,1])tube(vehicle,grip.clone().add(V(0,0,s*.115)),grip.clone().add(V(0,0,s*.17)),.014,dark);
+ const lane=design.stance,stroke=design.stroke;const ring=V(pivot.x,pivot.y,.098);hoop(vehicle,ring,.082,.009,steel);hoop(vehicle,V(-.5,0,.098),.036,.006,dark);
+ for(const s of [-1,1])tube(vehicle,ring.clone().add(V(0,s*.079)),V(-.5,s*.034,.098),.005,dark);
+ const chainwheel=group(vehicle);chainwheel.position.copy(ring);
+ for(let i=0;i<5;i++){const angle=i*Math.PI*2/5;tube(chainwheel,V(),V(.08*Math.cos(angle),.08*Math.sin(angle),0),.007,steel);}
+ tube(vehicle,pivot.clone().add(V(0,0,-lane)),pivot.clone().add(V(0,0,lane)),.015,steel);
+ const body=group(vehicle);const support=saddle.clone().add(V(.035,.135));body.position.copy(support);
+ const dummy=mesh(body,new T.SphereGeometry(.01),skin);const P={rider:body,torso:dummy,l:{},r:{}};
+ // The sculptor's cross-sections are expressed in this group's local bicycle frame.
+ attachLoftRider(T,P,design,wb,basis,scene);dummy.removeFromParent();
+ P.torso.geometry.computeBoundingBox();const torsoBox=P.torso.geometry.boundingBox;
+ const torsoAt=(dx,dy,dz)=>{const c=torsoBox.getCenter(V()),size=torsoBox.getSize(V());c.add(V(dx*size.x,dy*size.y,dz*size.z));return vehicle.worldToLocal(P.torso.localToWorld(c));};
+ const height=torsoAt(0,0,0).y-torsoAt(0,-.5,0).y;
+ body.position.add(saddle.clone().add(V(.035,height+.012)).sub(torsoAt(0,0,0)));const rest=body.position.clone();
+ const kit=design.clothing==='cycling_kit', jersey=color(design.kitColor);
+ if(kit){
+  const breast=torsoBox.getCenter(V()),size=torsoBox.getSize(V());
+  const panel=ell(P.torso,breast,V(size.x*.43,size.y*.505,size.z*.51),jersey);
+  panel.position.x+=size.x*.08;
+  for(const s of [-1,1])ell(P.torso,breast.clone().add(V(.015,-.015,s*size.z*.475)),V(size.x*.22,.010,.005),steel);
+ }
+ // A closed webbed sole with an inlaid heel sits on a contrasting open pedal.
+ const footOutline=new T.Shape();footOutline.moveTo(-.079,0);
+ for(const [x,z] of [[-.069,-.025],[-.022,-.032],[.068,-.060],[.065,-.026],[.105,0],[.065,.026],[.068,.060],[-.022,.032],[-.069,.025]])footOutline.lineTo(x,z);
+ footOutline.closePath();
+ const footGeometry=new T.ExtrudeGeometry(footOutline,{depth:.024,bevelEnabled:false});footGeometry.rotateX(-Math.PI/2);
+ const links=[1,-1].map((s,i)=>{const k=i?'R':'L';
+  const platform=group(vehicle),shoe=group(vehicle);const pedal=tag(mesh(platform,new T.BoxGeometry(.206,.034,.144),dark,V(0,-.017)),'pedal_'+k);
+  const sole=tag(mesh(shoe,footGeometry,skin),'foot_'+k);
+  ell(shoe,V(-.035,.032,0),V(.048,.031,.031),skin);
+  if(design.footwear==='cycling_boot'){
+   const leather=color(design.bootColor),cuff=color(design.trim);
+   ell(shoe,V(.008,.034,0),V(.094,.032,.052),leather);
+   ell(shoe,V(-.039,.055,0),V(.044,.052,.042),leather);
+   for(const x of [-.014,.009,.031]){
+    const lace=[V(x,.051,-.033),V(x-.008,.066,0),V(x-.014,.051,.033)];
+    mesh(shoe,new T.TubeGeometry(new T.CatmullRomCurve3(lace),9,.0038,6,false),cuff);
+   }
+   for(const z of [-1,1])tube(shoe,V(-.064,.014,z*.032),V(.060,.014,z*.043),.005,cuff);
+  }
+  for(let t=-1;t<=1;t++){
+   const tip=V(t===0?.102:.070,.022,.058*t);
+   tube(shoe,V(-.032,.035,0),tip,.0055,skin);ell(shoe,tip,V(.010,.005,.006),skin);
+   if(design.footwear!=='cycling_boot'){
+    const z=t*.045;
+    const knuckles=[V(-.018,.044,z*.32),V(.050,.032,z),V(.096,.019,z),V(.108,-.006,z),V(.105,-.021,z)];
+    mesh(shoe,new T.TubeGeometry(new T.CatmullRomCurve3(knuckles),16,.0068,8,false),shank);
+    tube(shoe,knuckles[4],V(.095,-.025,z),.0035,dark);
+   }
+  }
+  for(const z of [-1,1]){
+   mesh(platform,new T.BoxGeometry(.125,.012,.005),color('#ffad37'),V(0,-.012,z*.062));
+   tube(platform,V(-.080,-.019,z*.057),V(.081,-.019,z*.057),.005,steel);
+  }
+  const strapMat=color(design.shoe);
+  for(const x of [.008,.055]){
+   const strapPoints=[V(x,-.008,-.070),V(x-.009,.025,-.047),V(x-.015,.043,0),V(x-.009,.025,.047),V(x,-.008,.070)];
+   mesh(platform,new T.TubeGeometry(new T.CatmullRomCurve3(strapPoints),20,.007,9,false),strapMat);
+  }
+  for(const z of [-1,1]){
+   mesh(platform,new T.BoxGeometry(.165,.015,.009),enamel,V(.004,-.017,z*.071));
+   tube(platform,V(-.087,-.025,z*.067),V(.086,-.025,z*.067),.004,steel);
+  }
+  const upper=tag(mesh(vehicle,limbProfile(T,true),color(design.feather)),'thigh_'+k),lower=tag(mesh(vehicle,limbProfile(T,false),shank),'shin_'+k);
+  const knee=ell(vehicle,V(),V(.031,.035,.029),skin),heel=ell(vehicle,V(),V(.031,.034,.030),skin);
+  const arm=tube(vehicle,V(),V(1),.018,steel),pin=tag(ell(vehicle,V(),V(.022,.022,.018),steel),'crank_'+k);
+  const spindle=tube(vehicle,V(),V(0,0,1),.014,steel);
+  const wing=mesh(vehicle,fitHaunch(T),color(design.feather)),tip=mesh(vehicle,fitHaunch(T),color(design.feather));
+  const rump=mesh(vehicle,fitHaunch(T),kit?jersey:color(design.feather));
+  const ankleCuff=ell(vehicle,V(),V(.031,.037,.029),shank);
+  return {s,platform,shoe,pedal,sole,upper,lower,knee,heel,arm,pin,wing,tip,spindle,rump,ankleCuff};});
+ for(const o of roots)o.visible=false;
+ const api=window.__pelicanLab,oldTime=api.setTime.bind(api),oldPause=api.setPaused.bind(api);let explicit=null,t=0,prev=null,paused=false,last=performance.now();
+ const read=()=>{try{return Number(clock());}catch{return NaN;}};
+ api.setTime=function(seconds){explicit=Number(seconds);try{return oldTime(seconds);}finally{t=explicit;prev=read();last=performance.now();explicit=null;}};
+ api.setPaused=function(p){paused=!!p;last=performance.now();return oldPause(p);};
+ const originalDraw=renderer.render.bind(renderer);
+ renderer.render=function(world,cam,...extra){if(world===scene){
+  const now=performance.now(),raw=read();if(explicit!==null)t=explicit;
+  else if(!paused){if(Number.isFinite(raw)&&Number.isFinite(prev)){let d=raw-prev;if(d< -1&&d> -2.1)d+=2;t+=d;}else t+=Math.min(.1,(now-last)/1000);}
+  last=now;prev=raw;const a=-Math.PI*t;
+  if(!mount&&!design.trackWorld)vehicle.position.copy(at(front).lerp(at(rear),.5));
+  for(const w of wheels)w.rotation.z=a*2.15;chainwheel.rotation.z=a;
+  body.position.copy(rest).add(V(.012*Math.sin(2*a),.012*Math.cos(2*a),.008*Math.sin(a)));
+  body.rotation.z=(sport?-.19:-.055)+.032*Math.sin(2*a+.25);
+  for(const [i,l] of links.entries()){
+   const b=a+i*Math.PI, hub=pivot.clone().add(V(0,0,l.s*(lane-.037))), axle=hub.clone().add(V(stroke*Math.cos(b),stroke*Math.sin(b)));
+   const p=axle.clone().add(V(0,.017,l.s*.037)),pitch=.19*Math.sin(b+.45)-.035;
+   l.platform.position.copy(p);l.shoe.position.copy(p);l.platform.rotation.z=pitch;l.shoe.rotation.z=pitch;
+   l.pin.position.copy(axle);span(l.arm,hub,axle,.019);span(l.spindle,axle,p.clone().add(V(0,-.012,l.s*.037)),.013);
+   const ankle=V(-.035,.021,0).applyAxisAngle(V(0,0,1),pitch).add(p), hip=torsoAt(-.09,-.17,l.s*.34);
+   const dir=ankle.clone().sub(hip),len=dir.length();dir.normalize();
+   const forward=V(design.legPose==='avian'?-1:1,0,l.s*design.kneeOut*6);forward.addScaledVector(dir,-forward.dot(dir)).normalize();
+   // Solve the triangle with fixed, unequal bone lengths for the whole cycle.
+   if(!l.legLength)l.legLength=hip.distanceTo(pivot.clone().add(V(-.043,.024,l.s*lane)))+stroke+.030;
+   const femur=l.legLength*design.legRatio,tarsus=l.legLength-femur;
+   const along=(femur*femur-tarsus*tarsus+len*len)/(2*len);
+   const k=hip.clone().addScaledVector(dir,along).addScaledVector(forward,Math.sqrt(Math.max(0,femur*femur-along*along)));
+   span(l.upper,hip,k,.048,.041);
+   const haunchTop=torsoAt(-.13,-.06,l.s*.32),haunchEnd=hip.clone().lerp(k,.64);
+   span(l.rump,haunchTop,haunchEnd,.063,.051);
+   span(l.lower,k,ankle,.027,.024);l.knee.scale.set(.028,.031,.026);l.knee.position.copy(k);
+   l.heel.scale.set(.036,.031,.030);l.heel.position.copy(ankle);l.ankleCuff.position.copy(ankle).lerp(k,.045);
+   const shoulder=torsoAt(.19,.12,l.s*.32),hand=grip.clone().add(V(0,.006,l.s*.146)),elbow=shoulder.clone().lerp(hand,.52).add(V(-.024,-.028,l.s*.023));
+   span(l.wing,shoulder,elbow,.052,.030);span(l.tip,elbow,hand,.031,.019);
+  }
+ }return originalDraw(world,cam,...extra);};api.setTime(0);
+}
+
+const rigScene=scene; window.__pelicanLab.setTime(0); rebuildAssembly(T,scene,renderer,{"parts": [{"role": "torso", "color": "#14181f", "rings": [[-0.2544, 0.043, 0, 0.018, 0.024], [-0.20159999999999997, 0.022, 0, 0.105, 0.106], [-0.096, -0.004, 0, 0.148, 0.144], [0.01, 0, 0, 0.16, 0.148], [0.1056, 0.016, 0, 0.148, 0.134], [0.192, 0.042, 0, 0.11, 0.094], [0.2304, 0.067, 0, 0.051, 0.052]]}, {"role": "neck", "color": "#14181f", "rings": [[0.062, 0.035, 0, 0.114, 0.1], [0.112, 0.078, 0, 0.115, 0.105], [0.117, 0.13536, 0, 0.094, 0.081], [0.097, 0.16016000000000002, 0, 0.063, 0.062], [0.146, 0.17696, 0, 0.054, 0.055], [0.2142, 0.17800000000000002, 0, 0.061, 0.063], [0.2472, 0.196, 0, 0.049, 0.055]]}, {"role": "head", "color": "#14181f", "center": [0.2392, 0.196, 0], "radii": [0.10857599999999999, 0.0928, 0.085376]}, {"role": "bill", "color": "#ff5a2a", "rings": [[0.26687999999999995, 0.188, 0, 0.016, 0.046], [0.30288, 0.192, 0, 0.023, 0.054], [0.343192, 0.189, 0, 0.019, 0.051], [0.40614399999999995, 0.181, 0, 0.013, 0.032], [0.44128, 0.17, 0, 0.007, 0.009], [0.44728, 0.164, 0, 0.003, 0.003]]}, {"role": "bill_plate", "color": "#1d2430", "rings": [[0.27887999999999996, 0.184, 0, 0.025, 0.041], [0.30688, 0.193, 0, 0.07, 0.045], [0.341728, 0.188, 0, 0.05460000000000001, 0.041], [0.38271999999999995, 0.182, 0, 0.03150000000000001, 0.022], [0.41931999999999997, 0.173, 0, 0.006, 0.006]]}, {"role": "dark_crown", "color": "#0e1218", "center": [0.2312, 0.222, 0], "radii": [0.10950399999999999, 0.081664, 0.090944]}, {"role": "pale_breast", "color": "#f3f4f0", "center": [0.0624, -0.021, 0], "radii": [0.1536, 0.136, 0.142]}, {"role": "cheek_disk-1", "color": "#f3f4f0", "center": [0.2512, 0.19, -0.06495999999999999], "radii": [0.07980799999999999, 0.061248, 0.031552]}, {"role": "coral_bill-1", "color": "#ff5a2a", "rings": [[0.29488, 0.19, -0.03, 0.037, 0.015], [0.32416, 0.191, -0.032, 0.0665, 0.017], [0.38271999999999995, 0.185, -0.024, 0.0427, 0.015], [0.432496, 0.176, -0.01, 0.01, 0.006]]}, {"role": "cheek_disk1", "color": "#f3f4f0", "center": [0.2512, 0.19, 0.06495999999999999], "radii": [0.07980799999999999, 0.061248, 0.031552]}, {"role": "coral_bill1", "color": "#ff5a2a", "rings": [[0.29488, 0.19, 0.03, 0.037, 0.015], [0.32416, 0.191, 0.032, 0.0665, 0.017], [0.38271999999999995, 0.185, 0.024, 0.0427, 0.015], [0.432496, 0.176, 0.01, 0.01, 0.006]]}, {"role": "cheek-1", "color": "#f3f4f0", "center": [0.2412, 0.18, -0.06681599999999999], "radii": [0.06032, 0.034336, 0.020416]}, {"role": "eye_lid-1", "color": "#ffc23d", "center": [0.268896, 0.21363200000000002, -0.07424], "radii": [0.026911999999999995, 0.025056, 0.016703999999999997]}, {"role": "pupil-1", "color": "#141917", "center": [0.274464, 0.21456, -0.08723199999999999], "radii": [0.014848, 0.017632, 0.0070528]}, {"role": "glint-1", "color": "#fffbe9", "center": [0.278176, 0.22012800000000002, -0.0928], "radii": [0.0038, 0.0038, 0.002]}, {"role": "folded_wing-1", "color": "#0e1218", "rings": [[-0.2496, 0.036, -0.07, 0.006, 0.011], [-0.17279999999999998, 0.03, -0.107, 0.043, 0.026], [-0.072, 0.023, -0.128, 0.079, 0.032], [0.022, 0.031, -0.137, 0.086, 0.033], [0.099, 0.059, -0.099, 0.046, 0.028], [0.116, 0.061, -0.075, 0.01, 0.011]]}, {"role": "primary-1_0", "color": "#dbeafe", "rings": [[-0.2592, 0.034, -0.084, 0.004, 0.004], [-0.1632, 0.034, -0.125, 0.015, 0.009], [-0.0768, 0.042, -0.151, 0.014, 0.008]]}, {"role": "primary-1_1", "color": "#0e1218", "rings": [[-0.2722, 0.048, -0.094, 0.004, 0.004], [-0.1632, 0.046, -0.132, 0.015, 0.009], [-0.0768, 0.052000000000000005, -0.155, 0.014, 0.008]]}, {"role": "primary-1_2", "color": "#0e1218", "rings": [[-0.2852, 0.062, -0.10400000000000001, 0.004, 0.004], [-0.1632, 0.058, -0.139, 0.015, 0.009], [-0.0768, 0.062, -0.159, 0.014, 0.008]]}, {"role": "tail-1", "color": "#dbeafe", "rings": [[-0.1632, 0.03, -0.041, 0.048, 0.038], [-0.2352, 0.053, -0.052, 0.041, 0.031], [-0.38559999999999994, 0.095, -0.061, 0.006, 0.009]]}, {"role": "cheek1", "color": "#f3f4f0", "center": [0.2412, 0.18, 0.06681599999999999], "radii": [0.06032, 0.034336, 0.020416]}, {"role": "eye_lid1", "color": "#ffc23d", "center": [0.268896, 0.21363200000000002, 0.07424], "radii": [0.026911999999999995, 0.025056, 0.016703999999999997]}, {"role": "pupil1", "color": "#141917", "center": [0.274464, 0.21456, 0.08723199999999999], "radii": [0.014848, 0.017632, 0.0070528]}, {"role": "glint1", "color": "#fffbe9", "center": [0.278176, 0.22012800000000002, 0.0928], "radii": [0.0038, 0.0038, 0.002]}, {"role": "folded_wing1", "color": "#0e1218", "rings": [[-0.2496, 0.036, 0.07, 0.006, 0.011], [-0.17279999999999998, 0.03, 0.107, 0.043, 0.026], [-0.072, 0.023, 0.128, 0.079, 0.032], [0.022, 0.031, 0.137, 0.086, 0.033], [0.099, 0.059, 0.099, 0.046, 0.028], [0.116, 0.061, 0.075, 0.01, 0.011]]}, {"role": "primary1_0", "color": "#dbeafe", "rings": [[-0.2592, 0.034, 0.084, 0.004, 0.004], [-0.1632, 0.034, 0.125, 0.015, 0.009], [-0.0768, 0.042, 0.151, 0.014, 0.008]]}, {"role": "primary1_1", "color": "#0e1218", "rings": [[-0.2722, 0.048, 0.094, 0.004, 0.004], [-0.1632, 0.046, 0.132, 0.015, 0.009], [-0.0768, 0.052000000000000005, 0.155, 0.014, 0.008]]}, {"role": "primary1_2", "color": "#0e1218", "rings": [[-0.2852, 0.062, 0.10400000000000001, 0.004, 0.004], [-0.1632, 0.058, 0.139, 0.015, 0.009], [-0.0768, 0.062, 0.159, 0.014, 0.008]]}, {"role": "tail1", "color": "#dbeafe", "rings": [[-0.1632, 0.03, 0.041, 0.048, 0.038], [-0.2352, 0.053, 0.052, 0.041, 0.031], [-0.38559999999999994, 0.095, 0.061, 0.006, 0.009]]}], "paint": "#2f7d8c", "trim": "#dbeafe", "feather": "#14181f", "shank": "#ff7a1a", "skin": "#fff1d6", "shoe": "#1d2430", "stroke": 0.12, "radius": 0.3, "vehicle": "bicycle", "trackWorld": true, "species": "puffin", "footwear": "toe_clip", "bootColor": "#14181f", "posture": "sport", "legPose": "forward", "clothing": "cycling_kit", "kitColor": "#7fb6ff", "stance": 0.164, "saddleHeight": 0.207, "legRatio": 0.5, "kneeOut": 0.04},()=>time*1.0,[],{"front": [0.78, 0.42, 0], "rear": [-0.78, 0.42, 0]});
+}
+</script></body></html>

@@ -1,0 +1,3 @@
+# Human visual preference rubric
+
+Watch the anonymous left and right ride together. Which better fulfills the depicted riding task and looks more like a coherent ride? Consider recognizable rider and vehicle, whether feet follow the pedals, and whether the moving parts stay together. Choose **left better**, **right better**, **tie** (comparable), or **unclear** (insufficient visual evidence). There is no absolute score. A or B in the ballot is the screen position, not an experimental arm. Use the side key after both ballots are complete. The browser independently supplies numerical criteria and can fail a ride both viewers prefer. Repeated comparisons audit consistency, not additional votes.

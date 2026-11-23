@@ -1,0 +1,42 @@
+[
+  {
+    "case": "deepseek-v4.1-flash-1017/ostrich-tricycle-01/D/try-1",
+    "reason": "Missing or repeated strategy: "
+  },
+  {
+    "case": "qwen3.8-flash/ostrich-tricycle-02/D/try-3",
+    "reason": "Expected one complete HTML document."
+  },
+  {
+    "case": "qwen3.8-flash/toucan-bicycle-01/D/try-1",
+    "reason": "Missing or repeated strategy: "
+  },
+  {
+    "case": "qwen3.8-flash/toucan-bicycle-03/D/try-1",
+    "reason": "Missing or repeated strategy: "
+  },
+  {
+    "case": "qwen3.8-flash/toucan-tricycle-01/D/try-1",
+    "reason": "Missing or repeated strategy: "
+  },
+  {
+    "case": "qwen4-max/ostrich-bicycle-01/D/try-2",
+    "reason": "Expected one complete HTML document."
+  },
+  {
+    "case": "qwen4-max/ostrich-bicycle-03/C/try-3",
+    "reason": "Expected one complete HTML document."
+  },
+  {
+    "case": "qwen4-max/ostrich-tricycle-01/D/try-3",
+    "reason": "Missing or repeated strategy: "
+  },
+  {
+    "case": "qwen4-max/ostrich-tricycle-02/D/try-3",
+    "reason": "Missing or repeated strategy: "
+  },
+  {
+    "case": "qwen4-max/ostrich-tricycle-03/D/try-3",
+    "reason": "Missing or repeated strategy: "
+  }
+]

@@ -1,0 +1,226 @@
+[
+  {
+    "blinded_base": "00",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 4.022,
+    "peak_changed_closeup_pixel_percent": 5.267
+  },
+  {
+    "blinded_base": "00",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 8.002,
+    "peak_changed_closeup_pixel_percent": 9.712
+  },
+  {
+    "blinded_base": "00",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 10.68,
+    "peak_changed_closeup_pixel_percent": 12.569
+  },
+  {
+    "blinded_base": "00",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 3.167,
+    "peak_changed_closeup_pixel_percent": 3.376
+  },
+  {
+    "blinded_base": "01",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 5.166,
+    "peak_changed_closeup_pixel_percent": 5.637
+  },
+  {
+    "blinded_base": "01",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 9.049,
+    "peak_changed_closeup_pixel_percent": 11.154
+  },
+  {
+    "blinded_base": "01",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 12.265,
+    "peak_changed_closeup_pixel_percent": 14.242
+  },
+  {
+    "blinded_base": "01",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 5.235,
+    "peak_changed_closeup_pixel_percent": 5.541
+  },
+  {
+    "blinded_base": "02",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 2.671,
+    "peak_changed_closeup_pixel_percent": 3.77
+  },
+  {
+    "blinded_base": "02",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 16.138,
+    "peak_changed_closeup_pixel_percent": 18.064
+  },
+  {
+    "blinded_base": "02",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 15.162,
+    "peak_changed_closeup_pixel_percent": 17.84
+  },
+  {
+    "blinded_base": "02",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 9.716,
+    "peak_changed_closeup_pixel_percent": 10.243
+  },
+  {
+    "blinded_base": "03",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 3.574,
+    "peak_changed_closeup_pixel_percent": 4.436
+  },
+  {
+    "blinded_base": "03",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 14.632,
+    "peak_changed_closeup_pixel_percent": 16.554
+  },
+  {
+    "blinded_base": "03",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 16.443,
+    "peak_changed_closeup_pixel_percent": 18.541
+  },
+  {
+    "blinded_base": "03",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 9.918,
+    "peak_changed_closeup_pixel_percent": 10.255
+  },
+  {
+    "blinded_base": "04",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 3.756,
+    "peak_changed_closeup_pixel_percent": 4.255
+  },
+  {
+    "blinded_base": "04",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 17.915,
+    "peak_changed_closeup_pixel_percent": 21.659
+  },
+  {
+    "blinded_base": "04",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 17.386,
+    "peak_changed_closeup_pixel_percent": 21.401
+  },
+  {
+    "blinded_base": "04",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 7.802,
+    "peak_changed_closeup_pixel_percent": 8.44
+  },
+  {
+    "blinded_base": "05",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 2.702,
+    "peak_changed_closeup_pixel_percent": 3.149
+  },
+  {
+    "blinded_base": "05",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 14.619,
+    "peak_changed_closeup_pixel_percent": 17.596
+  },
+  {
+    "blinded_base": "05",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 15.022,
+    "peak_changed_closeup_pixel_percent": 17.556
+  },
+  {
+    "blinded_base": "05",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 8.5,
+    "peak_changed_closeup_pixel_percent": 8.91
+  },
+  {
+    "blinded_base": "06",
+    "fault": "feet_raised",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 2.785,
+    "peak_changed_closeup_pixel_percent": 3.815
+  },
+  {
+    "blinded_base": "06",
+    "fault": "crank_stopped",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 15.855,
+    "peak_changed_closeup_pixel_percent": 16.651
+  },
+  {
+    "blinded_base": "06",
+    "fault": "crank_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 17.723,
+    "peak_changed_closeup_pixel_percent": 18.808
+  },
+  {
+    "blinded_base": "06",
+    "fault": "wheel_reversed",
+    "phase_times": 24,
+    "camera_equal": true,
+    "median_changed_closeup_pixel_percent": 3.544,
+    "peak_changed_closeup_pixel_percent": 3.707
+  }
+]

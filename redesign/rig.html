@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pelican cycling study</title><style>*{box-sizing:border-box}body{margin:0;overflow:hidden;background:#e1e8dc}canvas{display:block;width:100vw;height:100vh;touch-action:none}</style><script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/addons/"}}</script></head><body><script type="module">
+import * as T from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+const v=(x=0,y=0,z=0)=>new T.Vector3(x,y,z), scene=new T.Scene();
+const renderer=new T.WebGLRenderer({antialias:true});document.body.appendChild(renderer.domElement);renderer.setPixelRatio(Math.min(1.6,devicePixelRatio));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
+scene.background=new T.Color(0xc5e2e4);scene.fog=new T.FogExp2(0xd9e6df,.036);
+scene.add(new T.HemisphereLight(0xfff7de,0x798986,2.2));const sun=new T.DirectionalLight(0xffebcd,2.6);sun.position.set(-3,7,5);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-4,right:4,top:4,bottom:-4});sun.shadow.normalBias=.023;scene.add(sun);
+const camera=new T.PerspectiveCamera(33,1,.02,90),controls=new OrbitControls(camera,renderer.domElement);
+controls.enableDamping=false;controls.enablePan=false;controls.minDistance=2.7;controls.maxDistance=12;controls.maxPolarAngle=Math.PI*.51;
+const color=c=>new T.MeshStandardMaterial({color:c,roughness:.63});
+function mesh(parent,geometry,mat,p=v()){const o=new T.Mesh(geometry,typeof mat==='object'?mat:color(mat));o.position.copy(p);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o;}
+function group(parent,p=v()){const g=new T.Group();g.position.copy(p);parent.add(g);return g;}
+function oval(parent,p,size,mat){const o=mesh(parent,new T.SphereGeometry(1,28,18),mat,p);o.scale.copy(size);return o;}
+function block(parent,p,size,mat){return mesh(parent,new T.BoxGeometry(size.x,size.y,size.z),mat,p);}
+function align(o,a,b,r){const d=b.clone().sub(a);o.position.copy(a).lerp(b,.5);o.quaternion.setFromUnitVectors(v(0,1,0),d.clone().normalize());o.scale.set(r,d.length(),r);}
+function rod(parent,a,b,r,mat){const o=mesh(parent,new T.CylinderGeometry(1,1,1,14),mat);align(o,a,b,r);return o;}
+function tag(o,id){o.userData.auditPart=id;return o;}
+const R=.53, front=v(.96,R,0),rear=v(-1.04,R,0),bb=v(-.06,.55,0),saddle=v(-.37,1.21,0),frame=group(scene);
+const wheels=[tag(group(frame,rear),'rear_wheel'),tag(group(frame,front),'front_wheel')];
+const body=group(frame,saddle.clone().add(v(0,.16,0)));
+const crankRadius=.22,halfWidth=.245,hips=[v(-.31,1.35,.245),v(-.31,1.35,-.245)];
+const legs=[1,-1].map((sign,i)=>{const k=sign===1?'L':'R';const arm=group(frame,bb),pedal=group(frame),foot=group(frame);return {k,sign,hip:hips[i],arm,pedal,foot};});
+const environment=group(scene);const moving=[];
+/* ART_START
+Implement the subject and the environment here. Every visible animal and vehicle feature is the model's work.
+1. Draw wheel tire, spokes, hubs and rim on each wheels[i], centered at local origin, rotating in XY. Tag one visible reflector on wheels[1] as rim_marker. Draw a complete connected bicycle frame between rear, front, bb, saddle and handlebars on frame.
+2. Sculpt the animal on body, local origin at the base of its belly (world y=1.37); head toward +X. Leave bike wheels visibly below. Draw the animal's features and the bike fittings with your own procedural geometry and materials.
+3. For each leg draw upper and lower limb cylinders with unit height/radius on frame and assign to leg.upper and leg.lower; the runtime positions these every frame. On leg.arm draw the arm from local (0,0,sign*halfWidth) to (crankRadius,0,sign*halfWidth); tag its visible end bolt crank_L/R. On leg.pedal draw a platform centered at its origin and tag it pedal_L/R (top surface y=.025). On leg.foot draw an actual webbed foot with sole bottom at its local y=0 and tag its sole mesh foot_L/R. The runtime aligns all corresponding transforms. Choose contrasting colors, visible thickness and broad webbed toe tips.
+4. Draw a world and ground on environment. For objects that scroll along -X, add {obj,start:obj.position.x,span:24} to moving (start must be within +/-span/2). Let the subject fill the frame.
+ART_END */
+function pose(t){
+ const phase=-Math.PI*t,travel=1.6*t;for(const w of wheels)w.rotation.z=-travel/R;
+ const bob=.017*Math.cos(2*phase);body.position.y=saddle.y+.16+bob;
+ legs.forEach((leg,i)=>{
+  const ang=phase+i*Math.PI,sign=leg.sign;
+  leg.arm.rotation.z=ang;
+  const p=v(bb.x+crankRadius*Math.cos(ang),bb.y+crankRadius*Math.sin(ang),sign*halfWidth);
+  leg.pedal.position.copy(p);leg.foot.position.copy(p).y+=.025;
+  const hip=leg.hip.clone();hip.y+=bob;const ankle=leg.foot.position.clone().add(v(-.025,.06,0));
+  const a=ankle.clone().sub(hip),d=a.length();a.normalize();const bend=v(-a.y,a.x,0).normalize();
+  const knee=hip.clone().lerp(ankle,.5).addScaledVector(bend,Math.sqrt(Math.max(0,.59*.59-d*d/4)));
+  if(leg.upper)align(leg.upper,hip,knee,.058);if(leg.lower)align(leg.lower,knee,ankle,.041);
+ });
+ for(const {obj,start,span} of moving)obj.position.x=((start-travel+span*.5)%span+span)%span-span*.5;
+}
+let tm=0,paused=false,last=null;
+function draw(){pose(tm);controls.update();renderer.render(scene,camera);}
+function view(name){const dist=Math.max(1,1.42/camera.aspect),at=v(0,1.29,0);controls.target.copy(at);
+ const offset=name==='front'?v(4.95,.42,.16):name==='side'?v(.04,.26,5.0):v(1.30,.68,5.2);
+ camera.position.copy(at).addScaledVector(offset,dist);camera.lookAt(at);controls.update();draw();}
+function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();}
+resize();view('hero');addEventListener('resize',()=>{resize();draw()});
+window.__pelicanLab={ready:true,setTime(t){tm=t;draw()},setPaused(p){paused=!!p;last=null;draw()},setView:view};
+renderer.setAnimationLoop(ms=>{if(last!=null&&!paused)tm+=Math.min((ms-last)/1000,.075);last=ms;draw()});
+</script></body></html>
